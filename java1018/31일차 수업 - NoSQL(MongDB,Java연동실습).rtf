@@ -1,0 +1,958 @@
+{\rtf1\ansi\ansicpg949\cocoartf1671\cocoasubrtf500
+{\fonttbl\f0\fnil\fcharset129 NanumMyeongjo;}
+{\colortbl;\red255\green255\blue255;\red0\green0\blue0;\red255\green255\blue255;\red83\green83\blue83;
+\red0\green0\blue0;\red83\green83\blue83;\red0\green0\blue0;\red127\green0\blue85;\red106\green62\blue62;
+\red63\green127\blue95;\red42\green0\blue255;\red0\green0\blue192;\red63\green95\blue191;\red0\green0\blue0;
+\red100\green100\blue100;}
+{\*\expandedcolortbl;;\cssrgb\c0\c1\c1;\cssrgb\c100000\c100000\c100000\c0;\cssrgb\c40088\c40088\c39988;
+\cssrgb\c0\c1\c1;\cssrgb\c40088\c40088\c39988;\csgray\c0;\csgenericrgb\c49804\c0\c33333;\csgenericrgb\c41569\c24314\c24314;
+\csgenericrgb\c24706\c49804\c37255;\csgenericrgb\c16471\c0\c100000;\csgenericrgb\c0\c0\c75294;\csgenericrgb\c24706\c37255\c74902;\cssrgb\c0\c1\c1;
+\csgenericrgb\c39216\c39216\c39216;}
+\paperw11900\paperh16840\margl1440\margr1440\vieww12400\viewh14600\viewkind0
+\pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardirnatural\partightenfactor0
+
+\f0\fs24 \cf0 31\'c0\'cf\'c2\'f7(cho)\
+\pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardirnatural\partightenfactor0
+\cf0 \
+** Mongo DB \'bc\'ad\'b9\'f6 \'bd\'c7\'c7\'e0 \'b8\'ed\'b7\'c9\'be\'ee\
+\
+- mongod \cf2 \cb3 \expnd0\expndtw0\kerning0
+\outl0\strokewidth0 \strokec4 --dbpath \'b5\'a5\'c0\'cc\'c5\'cd \'c0\'fa\'c0\'e5 \'b0\'e6\'b7\'ce\cf0 \cb1 \kerning1\expnd0\expndtw0 \outl0\strokewidth0 \
+=> mongod \'b6\'f3\'b0\'ed\'b8\'b8 \'c0\'d4\'b7\'c2\'c7\'cf\'b8\'e9 \'b1\'e2\'ba\'bb \'b5\'f0\'b7\'ba\'c5\'e4\'b8\'ae\'bf\'a1 \'b5\'a5\'c0\'cc\'c5\'cd\'b8\'a6 \'c0\'fa\'c0\'e5\
+\
+** Mongo DB \'c5\'ac\'b6\'f3\'c0\'cc\'be\'f0\'c6\'ae \'bd\'c7\'c7\'e0\
+\
+- mongo\
+- mongo \cf5 \cb3 \expnd0\expndtw0\kerning0
+--host \'a1\'b0\'bc\'ad\'b9\'f6\'c1\'d6\'bc\'d2\'a1\'b1:\'a1\'b1\'c6\'f7\'c6\'ae\'b9\'f8\'c8\'a3\'a1\'b1\
+- mongo --host 192.168.0.151:27017\cf0 \cb1 \kerning1\expnd0\expndtw0 \
+\
+** Mongo DB \'c6\'af\'c2\'a1(\'c0\'e5\'c1\'a1) - NoSQL\
+\
+- NoSQL \'b5\'a5\'c0\'cc\'c5\'cd\'ba\'a3\'c0\'cc\'bd\'ba \'b5\'e9\'c0\'ba \'c8\'ae\'c0\'e5\'c0\'cc \'bd\'b1\'bd\'c0\'b4\'cf\'b4\'d9.\
+- \'b5\'a5\'c0\'cc\'c5\'cd\'c0\'c7 \'c7\'a5\'c7\'f6\'c0\'ba JSON \'c7\'fc\'c5\'c2\'c0\'c7 BSON\'c0\'bb \'c0\'cc\'bf\'eb\
+- \'c7\'c1\'b7\'ce\'bd\'c3\'c0\'fa \'b4\'eb\'bd\'c5\'bf\'a1 \'c0\'da\'b9\'d9\'bd\'ba\'c5\'a9\'b8\'b3\'c6\'ae\'b8\'a6 \'c0\'cc\'bf\'eb\
+- (\'b4\'dc\'c1\'a1)\'be\'f7\'b5\'a5\'c0\'cc\'c6\'ae\'b0\'a1 \'c0\'da\'c1\'d6 \'b9\'df\'bb\'fd\'c7\'d8\'bc\'ad \'c7\'cf\'c0\'a7 \'b9\'f6\'c0\'fc\'b0\'fa \'c8\'a3\'c8\'af\'bc\'ba\'c0\'cc \'b6\'b3\'be\'ee\'c1\'fd\'b4\'cf\'b4\'d9.\
+\
+- \'b0\'fc\'b0\'e8\'c7\'fc \'b5\'a5\'c0\'cc\'c5\'cd\'ba\'a3\'c0\'cc\'bd\'ba\'bf\'cd\'c0\'c7 \'bf\'eb\'be\'ee \'ba\'f1\'b1\'b3\
+=> Database(\'bf\'c0\'b6\'f3\'c5\'ac SID) - Database : \'c7\'cf\'b3\'aa\'c0\'c7 \'c0\'fa\'c0\'e5\'bc\'d2\
+=> Table <-> Collection\
+=> Index <-> Index(\'b5\'a5\'c0\'cc\'c5\'cd\'b8\'a6 \'ba\'fc\'b8\'a3\'b0\'d4 \'c1\'a2\'b1\'d9\'c7\'cf\'b1\'e2 \'c0\'a7\'c7\'d1 \'b0\'b3\'c3\'bc)\
+=> Row <-> Document(\'c7\'cf\'b3\'aa\'c0\'c7 \'c7\'e0)\
+=> Column <-> Attribute(\'c7\'cf\'b3\'aa\'c0\'c7 \'bf\'ad - \'bc\'d3\'bc\'ba)\
+=> Join <-> Embedding & Linking\
+\
+** \'c7\'cf\'b3\'aa\'c0\'c7 \'c7\'e0 \'c7\'a5\'c7\'f6\
+\
+\{\'a1\'b0\'bc\'d3\'bc\'ba\'c0\'cc\'b8\'a7 - key\'a1\'b1 : \'b5\'a5\'c0\'cc\'c5\'cd,\'a1\'a6..\}\
+=> \'bc\'d3\'bc\'ba\'c0\'cc\'b8\'a7 \'bc\'f8\'bc\'ad\'b4\'eb\'b7\'ce \'c0\'fa\'c0\'e5\'c7\'d5\'b4\'cf\'b4\'d9.\
+=> \'b5\'bf\'c0\'cf\'c7\'d1 \'bc\'d3\'bc\'ba\'c0\'cc\'b8\'a7\'b5\'e9\'c0\'bb \'b0\'a1\'c1\'b3\'b4\'f5\'b6\'f3\'b5\'b5 \'bc\'d3\'bc\'ba\'c0\'c7 \'bc\'f8\'bc\'ad\'b0\'a1 \'b4\'d9\'b8\'a3\'b8\'e9 \'b4\'d9\'b8\'a5 \'b9\'ae\'bc\'ad\'c0\'d4\'b4\'cf\'b4\'d9.\
+\{\'a1\'b0name\'a1\'b1:\'a1\'b1park\'a1\'b1, \'a1\'b0age\'a1\'b1:49\}\
+\{\'a1\'b0age\'a1\'b1:49, \'a1\'b0name\'a1\'b1:\'a1\'b1park\'a1\'b1\}\
+=> \'c0\'a7 2\'b0\'b3\'c0\'c7 \'b9\'ae\'bc\'ad\'b4\'c2 \'b4\'d9\'b8\'a5 \'b9\'ae\'bc\'ad\'c0\'d4\'b4\'cf\'b4\'d9.\
+=> key\'bf\'a1\'b4\'c2 \'bf\'b9\'be\'e0\'be\'ee\'b8\'a6 \'bb\'e7\'bf\'eb\'c7\'d2 \'bc\'f6 \'be\'f8\'bd\'c0\'b4\'cf\'b4\'d9.\
+=> key\'b4\'c2 \'c1\'df\'ba\'b9\'b5\'c7\'b0\'c5\'b3\'aa null\'c0\'cf \'bc\'f6 \'be\'f8\'bd\'c0\'b4\'cf\'b4\'d9.\
+=> .(\'c1\'a1) , $, _(\'b9\'d8\'c1\'d9)\'c0\'ba key\'bf\'a1 \'bb\'e7\'bf\'eb\'c7\'cf\'b8\'e9 \'be\'c8\'b5\'cb\'b4\'cf\'b4\'d9.\
+\
+** \'b9\'e8\'bf\'ad \'c7\'a5\'c7\'f6 - \'bf\'a9\'b7\'af \'b0\'b3\'c0\'c7 \'b5\'a5\'c0\'cc\'c5\'cd \'c7\'a5\'c7\'f6\
+[\'b5\'a5\'c0\'cc\'c5\'cd \'b3\'aa\'bf\'ad] \
+\
+** Collection \'bb\'fd\'bc\'ba\
+\
+db.createCollection(\'a1\'b0\'c4\'c3\'b7\'ba\'bc\'c7 \'c0\'cc\'b8\'a7\'a1\'b1)\
+=> \'c4\'c3\'b7\'ba\'bc\'c7\'c0\'bb \'b8\'b8\'b5\'e9\'c1\'f6 \'be\'ca\'be\'c6\'b5\'b5 \'b5\'a5\'c0\'cc\'c5\'cd\'b8\'a6 \'bb\'f0\'c0\'d4\'c7\'d2 \'b6\'a7 \'bb\'f5\'b7\'ce\'bf\'ee \'c4\'c3\'b7\'ba\'bc\'c7\'c0\'cc\'b8\'a7\'c0\'bb \'bb\'e7\'bf\'eb\'c7\'cf\'b8\'e9 \'c0\'da\'b5\'bf\'c0\'b8\'b7\'ce \'bb\'fd\'bc\'ba\'b5\'ca\
+\
+** \'b5\'a5\'c0\'cc\'c5\'cd \'bb\'f0\'c0\'d4\
+\
+db.\'c4\'c3\'b7\'ba\'bc\'c7\'c0\'cc\'b8\'a7.insert(\'b0\'b4\'c3\'bc)\
+=> id \'bf\'cd password\'b6\'f3\'b4\'c2 \'bc\'d3\'bc\'ba\'c0\'bb \'b0\'a1\'c1\'f8 \'b0\'b4\'c3\'bc\'b8\'a6 \'bb\'fd\'bc\'ba\'c7\'d8\'bc\'ad users\'b6\'f3\'b4\'c2 \'c4\'c3\'b7\'ba\'bc\'c7\'bf\'a1 \'c3\'df\'b0\'a1\
+\
+\'bd\'c7\'bd\'c0)\
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural\partightenfactor0
+\cf7 \CocoaLigature0 db.users.insert(\{"id":"root", "passwrod":"1234"\})\
+WriteResult(\{ "nInserted" : 1 \})\cf0 \CocoaLigature1 \
+\cf7 \CocoaLigature0 db.users.insert(\{"id":"user01", "passwrod":"5678"\})\
+WriteResult(\{ "nInserted" : 1 \})\
+> db.users.insert(\{"id":"user02", "passwrod":"1256"\})\
+WriteResult(\{ "nInserted" : 1 \})\
+\cf0 \CocoaLigature1 \
+\pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardirnatural\partightenfactor0
+\cf0 => \'c4\'c3\'b7\'ba\'bc\'c7\'c0\'bb \'b8\'b8\'b5\'e9\'c1\'f6 \'be\'ca\'b0\'ed \'b9\'d9\'b7\'ce \'b5\'a5\'c0\'cc\'c5\'cd \'bb\'f0\'c0\'d4 \'b0\'a1\'b4\'c9\
+=> \'b1\'e2\'ba\'bb\'c5\'b0\'b4\'c2 \'be\'f8\'c1\'f6\'b8\'b8 MongoDB\'b0\'a1 ObjectId\'b6\'f3\'b4\'c2 \'bc\'d3\'bc\'ba\'c0\'bb \'bb\'fd\'bc\'ba\'c7\'d8\'bc\'ad \'c7\'d8\'bd\'c3\'c4\'da\'b5\'e5\'b8\'a6 \'c0\'fa\'c0\'e5\
+=> \'ba\'b0\'b5\'b5\'c0\'c7 SQL\'bb\'e7\'bf\'eb\'c7\'cf\'b4\'c2 \'b0\'cd\'c0\'cc \'be\'c6\'b4\'cf\'b6\'f3 \'c7\'c1\'b7\'ce\'b1\'d7\'b7\'a1\'b9\'d6 \'be\'f0\'be\'ee\'c0\'c7 \'c7\'d4\'bc\'f6 \'c8\'a3\'c3\'e2 \'c7\'fc\'c5\'c2\'b7\'ce \'c0\'db\'be\'f7\
+\
+** \'b5\'a5\'c0\'cc\'c5\'cd \'c1\'b6\'c8\'b8\
+\
+1. \'c0\'fc\'c3\'bc \'b5\'a5\'c0\'cc\'c5\'cd \'c1\'b6\'c8\'b8\
+\
+db.\'c4\'c3\'b7\'ba\'bc\'c7\'c0\'cc\'b8\'a7.find()\
+\
+\'bd\'c7\'bd\'c0)\
+db.users.find() // users\'c0\'c7 \'c0\'fc\'c3\'bc \'b5\'a5\'c0\'cc\'c5\'cd \'c1\'b6\'c8\'b8\
+\'b0\'e1\'b0\'fa)\
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural\partightenfactor0
+\cf7 \CocoaLigature0 \{ "_id" : ObjectId("5da918ac64a4de8424d9efc9"), "id" : "root", "passwrod" : "1234" \}\
+\{ "_id" : ObjectId("5da918e964a4de8424d9efca"), "id" : "user01", "passwrod" : "5678" \}\
+\{ "_id" : ObjectId("5da918f964a4de8424d9efcb"), "id" : "user02", "passwrod" : "1256" \}\cf0 \CocoaLigature1 \
+\pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardirnatural\partightenfactor0
+\cf0 \
+2. \'c6\'af\'c1\'a4 \'bc\'d3\'bc\'ba\'b8\'b8 \'c1\'b6\'c8\'b8\'c7\'cf\'b0\'c5\'b3\'aa \'c1\'a6\'bf\'dc\
+\
+db.\'c4\'c3\'b7\'ba\'bc\'c7\'c0\'cc\'b8\'a7.find(\{\}, \{\'bc\'d3\'bc\'ba\'c0\'cc\'b8\'a7:0 \'b6\'c7\'b4\'c2 1, \'a1\'a6\})\
+=> 0\'c0\'bb \'b4\'eb\'c0\'d4\'c7\'cf\'b8\'e9 \'c1\'a6\'bf\'dc\'b5\'c7\'b0\'ed 1\'c0\'bb \'b4\'eb\'c0\'d4\'c7\'cf\'b8\'e9 \'c3\'e2\'b7\'c2\
+\
+\'bd\'c7\'bd\'c0)\
+db.users.find(\{\}, \{id:1\}) //users\'bf\'a1\'bc\'ad id\'b8\'b8 \'c1\'b6\'c8\'b8\
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural\partightenfactor0
+\cf7 \CocoaLigature0 \'b0\'e1\'b0\'fa)\
+\{ "_id" : ObjectId("5da918ac64a4de8424d9efc9"), "id" : "root" \}\
+\{ "_id" : ObjectId("5da918e964a4de8424d9efca"), "id" : "user01" \}\
+\{ "_id" : ObjectId("5da918f964a4de8424d9efcb"), "id" : "user02" \}\
+\cf0 \CocoaLigature1 \
+\pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardirnatural\partightenfactor0
+\cf0 db.users.find(\{\}, \{id:0\}) //users\'bf\'a1\'bc\'ad id\'b8\'b8 \'c1\'a6\'bf\'dc\
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural\partightenfactor0
+\cf7 \CocoaLigature0 \'b0\'e1\'b0\'fa)\
+\{ "_id" : ObjectId("5da918ac64a4de8424d9efc9"), "passwrod" : "1234" \}\
+\{ "_id" : ObjectId("5da918e964a4de8424d9efca"), "passwrod" : "5678" \}\
+\{ "_id" : ObjectId("5da918f964a4de8424d9efcb"), "passwrod" : "1256" \}\cf0 \CocoaLigature1 \
+\pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardirnatural\partightenfactor0
+\cf0 \
+3. \'c1\'b6\'b0\'c7\'c0\'bb \'c0\'cc\'bf\'eb\'c7\'d1 \'c1\'b6\'c8\'b8\
+\
+db.\'c4\'c3\'b7\'ba\'bc\'c7\'c0\'cc\'b8\'a7.find(\{\'bc\'d3\'bc\'ba\'c0\'cc\'b8\'a7:\'c0\'cf\'c4\'a1\'c7\'cf\'b4\'c2\'b0\'aa\})\
+\
+\'bd\'c7\'bd\'c0) id\'b0\'a1 user01\'c0\'ce \'b5\'a5\'c0\'cc\'c5\'cd\'b8\'a6 \'c1\'b6\'c8\'b8\
+db.users.find(\{\'a1\'b0id\'a1\'b1:\'a1\'b1user01\'a1\'b1\})\
+\'b0\'e1\'b0\'fa)\
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural\partightenfactor0
+\cf7 \CocoaLigature0 \{ "_id" : ObjectId("5da918e964a4de8424d9efca"), "id" : "user01", "passwrod" : "5678" \}\cf0 \CocoaLigature1 \
+\pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardirnatural\partightenfactor0
+\cf0 \
+\{\} \'be\'c8\'bf\'a1 \'bf\'a9\'b7\'af \'b0\'b3\'c0\'c7 \'bc\'d3\'bc\'ba\'c0\'bb \'b1\'e2\'c0\'e7\'c7\'cf\'b8\'e9 and\'b0\'a1 \'b5\'cb\'b4\'cf\'b4\'d9.\
+\
+\'bd\'c7\'bd\'c0) id\'b0\'a1 user01\'c0\'cc\'b0\'ed password\'b0\'a1 1234\'c0\'ce \'b5\'a5\'c0\'cc\'c5\'cd\'b8\'a6 \'c1\'b6\'c8\'b8\
+db.users.find(\{\'a1\'b0id\'a1\'b1:\'a1\'b1user01\'a1\'b1, \'a1\'b0password\'a1\'b1:\'a1\'b11234\'a1\'b1\})\
+\
+=> ne(not), lt(lte), gt(gte), in, or, and, nor \'b5\'ee\'c0\'bb \'bb\'e7\'bf\'eb\
+\'c0\'a5 \'c7\'c1\'b7\'ce\'b1\'d7\'b7\'a1\'b9\'d6 \'be\'f0\'be\'ee\'bf\'a1\'bc\'ad\'b4\'c2 >, <\'b8\'a6 \'c0\'df \'bb\'e7\'bf\'eb\'c7\'cf\'c1\'f6 \'be\'ca\'bd\'c0\'b4\'cf\'b4\'d9.\
+\'c5\'c2\'b1\'d7\'b0\'a1 < >\'b7\'ce \'b0\'a8\'bd\'ce\'b1\'e2 \'b6\'a7\'b9\'ae\'bf\'a1 >, < \'b4\'eb\'bd\'c5\'bf\'a1 \'b4\'d9\'b8\'a5 \'b1\'e2\'c8\'a3\'b8\'a6 \'bb\'e7\'bf\'eb\'c7\'cf\'b4\'c2 \'b0\'e6\'bf\'ec\'b0\'a1 \'b8\'b9\'bd\'c0\'b4\'cf\'b4\'d9.\
+\
+db.\'c4\'c3\'b7\'ba\'bc\'c7\'c0\'cc\'b8\'a7.find(\{\'bc\'d3\'bc\'ba\'c0\'cc\'b8\'a7:\{$ne:\'b0\'aa\}\}) : \'be\'c6\'b4\'d1\'b0\'e6\'bf\'ec\
+=> lt \'bf\'cd gt \'b5\'b5 \'b5\'bf\'c0\'cf\'c7\'d1 \'b9\'e6\'b9\'fd\'c0\'b8\'b7\'ce \'bb\'e7\'bf\'eb\
+\
+db.\'c4\'c3\'b7\'ba\'bc\'c7\'c0\'cc\'b8\'a7.find(\{\'bc\'d3\'bc\'ba\'c0\'cc\'b8\'a7:\{$in:[\'b0\'aa\'c0\'bb \'b3\'aa\'bf\'ad]\}\}) : [ ] \'be\'c8\'bf\'a1 \'c0\'d6\'b4\'c2 \'b0\'aa \'c1\'df\'bf\'a1 \'c7\'cf\'b3\'aa\
+\
+db.\'c4\'c3\'b7\'ba\'bc\'c7\'c0\'cc\'b8\'a7.find(\{$or:[\{\'bc\'d3\'bc\'ba\'c0\'cc\'b8\'a7:\'b0\'aa\}, \{\'bc\'d3\'bc\'ba\'c0\'cc\'b8\'a7:\'b0\'aa\}]\})\
+\
+** \'be\'cb\'b0\'ed\'b8\'ae\'c1\'f2 \'c5\'d7\'bd\'ba\'c6\'ae\'bf\'a1\'bc\'ad \'b0\'fd\'c8\'a3 \'c2\'a6 \'b8\'c2\'c3\'df\'b1\'e2 \'b9\'ae\'c1\'a6\'b8\'a6 \'b8\'b9\'c0\'cc \'c3\'e2\'c1\'a6\'c7\'d5\'b4\'cf\'b4\'d9.\
+\
+\'bd\'c7\'bd\'c01) users \'c4\'c3\'b7\'ba\'bc\'c7\'bf\'a1\'bc\'ad id\'b0\'a1 root\'b0\'a1 \'be\'c6\'b4\'d1 \'b5\'a5\'c0\'cc\'c5\'cd \'c1\'b6\'c8\'b8\
+db.users.find(\{\'a1\'b0id\'a1\'b1:\{$ne:\'a1\'b1root\'a1\'b1\}\})\
+\
+\'b0\'e1\'b0\'fa)\
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural\partightenfactor0
+\cf7 \CocoaLigature0 \{ "_id" : ObjectId("5da918e964a4de8424d9efca"), "id" : "user01", "passwrod" : "5678" \}\
+\{ "_id" : ObjectId("5da918f964a4de8424d9efcb"), "id" : "user02", "passwrod" : "1256" \}\cf0 \CocoaLigature1 \
+\pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardirnatural\partightenfactor0
+\cf0 \
+\'bd\'c7\'bd\'c02) users \'c4\'c3\'b7\'ba\'bc\'c7\'bf\'a1\'bc\'ad id\'b0\'a1 root\'b6\'c7\'b4\'c2 user01\'c0\'ce \'b5\'a5\'c0\'cc\'c5\'cd \'c1\'b6\'c8\'b8\
+db.users.find(\{\'a1\'b0id\'a1\'b1:\{$in:[\'a1\'b1root\'a1\'b1,\'a1\'b1user01\'a1\'b1]\}\})\
+\
+\'b0\'e1\'b0\'fa)\
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural\partightenfactor0
+\cf7 \CocoaLigature0 \{ "_id" : ObjectId("5da918ac64a4de8424d9efc9"), "id" : "root", "passwrod" : "1234" \}\
+\{ "_id" : ObjectId("5da918e964a4de8424d9efca"), "id" : "user01", "passwrod" : "5678" \}\
+\
+\'bd\'c7\'bd\'c03) users \'c4\'c3\'b7\'ba\'bc\'c7\'bf\'a1\'bc\'ad id\'b0\'a1 root\'c0\'cc\'b0\'c5\'b3\'aa \'ba\'f1\'b9\'d0\'b9\'f8\'c8\'a3\'b0\'a1 5678\'c0\'ce \'b5\'a5\'c0\'cc\'c5\'cd\'b8\'a6 \'c1\'b6\'c8\'b8\
+db.users.find(\{$or:[\{"id":"user01"\},\{"password":"5678"\}]\})\
+\
+\'b0\'e1\'b0\'fa)\
+\{ "_id" : ObjectId("5da918e964a4de8424d9efca"), "id" : "user01", "passwrod" : "5678" \}\
+\
+** Like\
+\
+- \'c1\'a4\'b1\'d4\'bd\'c4(Regular Expression)\'c0\'bb \'c0\'cc\'bf\'eb\
+\
+\'bd\'c7\'bd\'c0) users \'c4\'c3\'b7\'ba\'bc\'c7\'bf\'a1\'bc\'ad id\'b0\'a1 user\'b7\'ce \'bd\'c3\'c0\'db\'c7\'cf\'b4\'c2 \'b8\'f0\'b5\'e7 \'b5\'a5\'c0\'cc\'c5\'cd\'b8\'a6 \'c1\'b6\'c8\'b8\
+db.users.find(\{\'a1\'b0id\'a1\'b1:/user.*/\})\
+\
+\'b0\'e1\'b0\'fa)\
+\{ "_id" : ObjectId("5da918e964a4de8424d9efca"), "id" : "user01", "passwrod" : "5678" \}\
+\{ "_id" : ObjectId("5da918f964a4de8424d9efcb"), "id" : "user02", "passwrod" : "1256" \}\
+\
+4. \'b5\'a5\'c0\'cc\'c5\'cd 1\'b0\'b3\'b8\'b8 \'c1\'b6\'c8\'b8\
+\
+- find \'b4\'eb\'bd\'c5\'bf\'a1 findOne\
+\
+\'bd\'c7\'bd\'c0) db.users.findOne()\
+\
+\'b0\'e1\'b0\'fa)\
+\{\
+	"_id" : ObjectId("5da918ac64a4de8424d9efc9"),\
+	"id" : "root",\
+	"passwrod" : "1234"\
+\}\
+\
+5. \'b5\'a5\'c0\'cc\'c5\'cd \'c1\'b6\'c8\'b8 \'b0\'fc\'b7\'c3 \'b1\'e2\'c5\'b8 \'c7\'d4\'bc\'f6\
+\
+- limit(\'b0\'b3\'bc\'f6) : \'b0\'b3\'bc\'f6\'b8\'b8\'c5\'ad\'b8\'b8 \'c1\'b6\'c8\'b8\
+- skip(\'b0\'b3\'bc\'f6) : \'b0\'b3\'bc\'f6\'b8\'b8\'c5\'ad\'b8\'b8 \'b0\'c7\'b3\'ca\'b6\'d9\'b1\'e2\
+- sort(\{\'bc\'d3\'bc\'ba\'c0\'cc\'b8\'a7:1 \'b6\'c7\'b4\'c2 -1, \'a1\'a6\}) : \'b5\'a5\'c0\'cc\'c5\'cd\'b8\'a6 \'bc\'d3\'bc\'ba\'c0\'cc\'b8\'a7\'c0\'b8\'b7\'ce \'c1\'a4\'b7\'c4\'c7\'cf\'b4\'c2\'b5\'a5 1\'c0\'cc\'b8\'e9 \'bf\'c0\'b8\'a7\'c2\'f7\'bc\'f8\'c0\'cc\'b0\'ed -1\'c0\'cc\'b8\'e9 \'b3\'bb\'b8\'b2\'c2\'f7\'bc\'f8\
+- 3\'b0\'b3 \'c7\'d4\'bc\'f6\'b4\'c2 find()\'bf\'a1 \'bb\'e7\'bf\'eb\'c7\'cf\'b4\'c2\'b5\'a5 \'c1\'b6\'c7\'d5\'c7\'d8\'bc\'ad \'bb\'e7\'bf\'eb\'c7\'cf\'b4\'c2 \'b0\'cd\'c0\'cc \'b0\'a1\'b4\'c9\
+\
+\'bd\'c7\'bd\'c0) db.users.find().limit(2)\
+\
+\'b0\'e1\'b0\'fa)\
+\{ "_id" : ObjectId("5da918ac64a4de8424d9efc9"), "id" : "root", "passwrod" : "1234" \}\
+\{ "_id" : ObjectId("5da918e964a4de8424d9efca"), "id" : "user01", "passwrod" : "5678" \}\
+\
+\'bd\'c7\'bd\'c0) db.users.find().skip(2)\
+\
+\'b0\'e1\'b0\'fa)\
+\{ "_id" : ObjectId("5da918f964a4de8424d9efcb"), "id" : "user02", "passwrod" : "1256" \}\cf0 \CocoaLigature1 \
+\pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardirnatural\partightenfactor0
+\cf0 \
+\'bd\'c7\'bd\'c0) db.users.find().sort(\{\'a1\'b0id\'a1\'b1:1\})\
+\
+\'b0\'e1\'b0\'fa)\
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural\partightenfactor0
+\cf7 \CocoaLigature0 \{ "_id" : ObjectId("5da918ac64a4de8424d9efc9"), "id" : "root", "passwrod" : "1234" \}\
+\{ "_id" : ObjectId("5da918e964a4de8424d9efca"), "id" : "user01", "passwrod" : "5678" \}\
+\{ "_id" : ObjectId("5da918f964a4de8424d9efcb"), "id" : "user02", "passwrod" : "1256" \}\
+\cf0 \CocoaLigature1 \
+6. \'b5\'a5\'c0\'cc\'c5\'cd\'b8\'a6 \'bc\'f8\'bc\'ad\'b4\'eb\'b7\'ce \'c7\'cf\'b3\'aa\'be\'bf \'c1\'b6\'c8\'b8\
+\
+- \'b5\'a5\'c0\'cc\'c5\'cd\'ba\'a3\'c0\'cc\'bd\'ba\'bf\'a1\'bc\'ad\'b4\'c2 cursor\'b6\'f3\'b0\'ed \'c7\'d5\'b4\'cf\'b4\'d9.\
+- \'c7\'c1\'b7\'ce\'b1\'d7\'b7\'a1\'b9\'d6 \'be\'f0\'be\'ee\'bf\'a1\'bc\'ad\'b4\'c2 Iterator(Enumerator)\
+\
+- Mongo DB\'bf\'a1\'bc\'ad\'b4\'c2 find()\'c0\'c7 \'b0\'e1\'b0\'fa\'b8\'a6 \'ba\'af\'bc\'f6\'bf\'a1 \'b4\'e3\'c0\'b8\'b8\'e9 \'ba\'af\'bc\'f6\'b0\'a1 \'c4\'bf\'bc\'ad\'b0\'a1 \'b5\'cb\'b4\'cf\'b4\'d9.\
+=> \'ba\'af\'bc\'f6\'bf\'a1\'bc\'ad hasNext()\'b8\'a6 \'c8\'a3\'c3\'e2\'c7\'cf\'b8\'e9 \'c0\'d0\'c0\'bb \'b5\'a5\'c0\'cc\'c5\'cd\'c0\'c7 \'c1\'b8\'c0\'e7\'bf\'a9\'ba\'ce\'b8\'a6 \'b8\'ae\'c5\'cf\
+=> next()\'b8\'a6 \'c8\'a3\'c3\'e2\'c7\'cf\'b8\'e9 \'b4\'d9\'c0\'bd \'b5\'a5\'c0\'cc\'c5\'cd\'b8\'a6 \'c0\'d0\'be\'ee\'bf\'c9\'b4\'cf\'b4\'d9.\
+\
+\'bd\'c7\'bd\'c0)\
+// find()\'c0\'c7 \'b0\'e1\'b0\'fa\'b8\'a6 \'ba\'af\'bc\'f6\'bf\'a1 \'b4\'e3\'b1\'e2\
+var cursor = db.users.find()\
+// \'b4\'d9\'c0\'bd\'b5\'a5\'c0\'cc\'c5\'cd \'c1\'b8\'c0\'e7\'bf\'a9\'ba\'ce \'c8\'ae\'c0\'ce\
+// \'b0\'e1\'b0\'fa\'b4\'c2 true\
+cursor.hasNext()\
+// next() \'c7\'d4\'bc\'f6\'b8\'a6 \'c0\'cc\'bf\'eb\'c7\'d8\'bc\'ad \'b4\'d9\'c0\'bd \'b5\'a5\'c0\'cc\'c5\'cd \'c0\'d0\'be\'ee\'bf\'c0\'b1\'e2\
+cursor.next()\
+\cf7 \CocoaLigature0 \
+\'b0\'e1\'b0\'fa)\
+\{\
+	"_id" : ObjectId("5da918ac64a4de8424d9efc9"),\
+	"id" : "root",\
+	"passwrod" : "1234"\
+\}\
+> cursor.next()\
+\{\
+	"_id" : ObjectId("5da918e964a4de8424d9efca"),\
+	"id" : "user01",\
+	"passwrod" : "5678"\
+\}\
+> cursor.next()\
+\{\
+	"_id" : ObjectId("5da918f964a4de8424d9efcb"),\
+	"id" : "user02",\
+	"passwrod" : "1256"\
+\}\
+> cursor.next()\
+2019-10-18T11:41:32.579+0900 E  QUERY    [js] uncaught exception: Error: error hasNext: false :\
+DBQuery.prototype.next@src/mongo/shell/query.js:299:15\
+@(shell):1:1\cf0 \CocoaLigature1 \
+\
+** \'b5\'a5\'c0\'cc\'c5\'cd \'bc\'f6\'c1\'a4\
+\
+- \'c6\'af\'c1\'a4 \'c4\'c3\'b7\'b3 \'bc\'f6\'c1\'a4\
+db.\'c4\'c3\'b7\'ba\'bc\'c7\'c0\'cc\'b8\'a7.update(\{\'c1\'b6\'b0\'c7\}, \{$set:\{\'c4\'c3\'b7\'b3\'c0\'cc\'b8\'a7:\'bc\'f6\'c1\'a4\'c7\'d2\'b3\'bb\'bf\'eb\}\})\
+=> set\'b4\'eb\'bd\'c5\'bf\'a1 unset\'c0\'bb \'bb\'e7\'bf\'eb\'c7\'cf\'b8\'e9 \'c4\'c3\'b7\'b3\'c0\'cc \'bb\'e8\'c1\'a6\'b5\'cb\'b4\'cf\'b4\'d9.\
+\
+- \'b5\'a5\'c0\'cc\'c5\'cd \'c0\'fc\'c3\'bc \'bc\'f6\'c1\'a4\
+db.\'c4\'c3\'b7\'ba\'bc\'c7\'c0\'cc\'b8\'a7.update(\{\'c1\'b6\'b0\'c7\},\{\'c4\'c3\'b7\'b3\'c0\'cc\'b8\'a7:\'bc\'f6\'c1\'a4\'c7\'d2\'b3\'bb\'bf\'eb\})\
+\
+=> update \'b4\'eb\'bd\'c5\'bf\'a1 save()\'b8\'a6 \'c0\'cc\'bf\'eb\'c7\'d8\'bc\'ad \'b1\'e2\'c1\'b8 \'b5\'a5\'c0\'cc\'c5\'cd\'b8\'a6 \'bb\'e8\'c1\'a6\'c7\'cf\'b0\'ed \'bb\'f0\'c0\'d4\'c7\'cf\'b4\'c2 \'b0\'cd\'c0\'cc \'b0\'a1\'b4\'c9\
+=> \'bf\'c9\'bc\'c7\'c0\'b8\'b7\'ce \{upsert:true\}\'b8\'a6 \'c3\'df\'b0\'a1\'b7\'ce \'b4\'eb\'c0\'d4\'c7\'cf\'b8\'e9 \'b5\'a5\'c0\'cc\'c5\'cd\'b0\'a1 \'be\'f8\'c0\'b8\'b8\'e9 \'c3\'df\'b0\'a1\
+\
+\'bd\'c7\'bd\'c0) users \'c4\'c3\'b7\'ba\'bc\'c7\'bf\'a1\'bc\'ad id\'b0\'a1 root \'c0\'ce \'b5\'a5\'c0\'cc\'c5\'cd\'c0\'c7 password\'b8\'a6 0000\'c0\'b8\'b7\'ce \'bc\'f6\'c1\'a4\
+\cf7 \CocoaLigature0 db.users.update(\{"id":"root"\},\{$set:\{"password":"0000"\}\})\
+\
+\cf0 \CocoaLigature1 \'b0\'e1\'b0\'fa)\
+\cf7 \CocoaLigature0 WriteResult(\{ "nMatched" : 1, "nUpserted" : 0, "nModified" : 1 \})\cf0 \CocoaLigature1 \
+\cf7 \CocoaLigature0 db.users.find()\
+\{ "_id" : ObjectId("5da918ac64a4de8424d9efc9"), "id" : "root", "passwrod" : "1234", "password" : "0000" \}\
+\{ "_id" : ObjectId("5da918e964a4de8424d9efca"), "id" : "user01", "passwrod" : "5678" \}\
+\{ "_id" : ObjectId("5da918f964a4de8424d9efcb"), "id" : "user02", "passwrod" : "1256" \}\cf0 \CocoaLigature1 \
+\
+** \'b5\'a5\'c0\'cc\'c5\'cd \'bb\'e8\'c1\'a6\
+\
+db.\'c4\'c3\'b7\'ba\'bc\'c7\'c0\'cc\'b8\'a7.remove(\{\'c1\'b6\'b0\'c7\})\
+\
+** \'c4\'c3\'b7\'ba\'bc\'c7 \'bb\'e8\'c1\'a6\
+\
+db.\'c4\'c3\'b7\'ba\'bc\'c7\'c0\'cc\'b8\'a7.drop()\
+\
+** \'b1\'e2\'ba\'bb\'c0\'fb\'c0\'b8\'b7\'ce \'c6\'ae\'b7\'a3\'c0\'e8\'bc\'c7\'c0\'c7 \'b0\'b3\'b3\'e4\'c0\'cc \'be\'f8\'bd\'c0\'b4\'cf\'b4\'d9.\
+\
+** Java \'bf\'cd MongoDB\'c0\'c7 CRUD(Create-Insert, Read, Update, Delete) \'c0\'db\'be\'f7\
+\
+1. \'b5\'e5\'b6\'f3\'c0\'cc\'b9\'f6 \'c6\'c4\'c0\'cf\
+\
+- mongo-driver\
+- mongo-driver-core\
+- bson\
+=> mongo-driver\'bf\'a1 \'c0\'d6\'b4\'c2 \'c5\'ac\'b7\'a1\'bd\'ba\'b0\'a1 mongo-driver-core\'c0\'c7 \'c5\'ac\'b7\'a1\'bd\'ba\'b8\'a6 \'c0\'cc\'bf\'eb\'c7\'cf\'b0\'ed\
+mongo-driver-core\'c0\'c7 \'c5\'ac\'b7\'a1\'bd\'ba\'b0\'a1 bson\'c0\'c7 \'c5\'ac\'b7\'a1\'bd\'ba\'b8\'a6 \'c0\'cc\'bf\'eb\'c7\'d5\'b4\'cf\'b4\'d9.\
+\'bc\'ad\'b7\'ce \'b4\'d9\'b8\'a5 \'b6\'f3\'c0\'cc\'ba\'ea\'b7\'af\'b8\'ae\'c0\'c7 \'c5\'ac\'b7\'a1\'bd\'ba\'b8\'a6 \'bb\'e7\'bf\'eb\'c7\'cf\'b4\'c2 \'b0\'cd\'c0\'bb \'c0\'c7\'c1\'b8\'c7\'d1\'b4\'d9\'b0\'ed \'c7\'d5\'b4\'cf\'b4\'d9.\
+\'c0\'cc\'b7\'b1 \'b0\'e6\'bf\'ec \'c0\'cc\'b7\'af\'c7\'d1 \'c0\'c7\'c1\'b8\'bc\'ba\'c0\'bb \'c6\'c4\'be\'c7\'c7\'d8\'bc\'ad \'b6\'f3\'c0\'cc\'ba\'ea\'b7\'af\'b8\'ae\'b8\'a6 \'bb\'e7\'bf\'eb\'c7\'cf\'b4\'c2 \'b0\'cd\'c0\'ba \'b3\'ca\'b9\'ab \'be\'ee\'b7\'c1\'bf\'ee \'c0\'cf\'c0\'cc\'b6\'f3\'bc\'ad\
+maven\'c0\'cc\'b3\'aa gradle\'c0\'cc\'b6\'f3\'b4\'c2 build tool\'b5\'e9\'c0\'ba \'c3\'d6\'bb\'f3\'c0\'a7 \'b6\'f3\'c0\'cc\'ba\'ea\'b7\'af\'b8\'ae\'b8\'b8 \'b0\'a1\'c1\'ae\'bf\'c0\'b4\'c2 \'c4\'da\'b5\'e5\'b8\'a6 \'c0\'db\'bc\'ba\'c7\'cf\'b8\'e9 \'be\'cb\'be\'c6\'bc\'ad\
+\'b4\'d9\'bf\'ee\'b7\'ce\'b5\'e5\'b8\'a6 \'b9\'de\'be\'c6\'bc\'ad \'bc\'b3\'c4\'a1\'b8\'a6 \'c7\'d5\'b4\'cf\'b4\'d9.\
+\
+2. Java Application \'c7\'c1\'b7\'ce\'c1\'a7\'c6\'ae\'b8\'a6 \'bb\'fd\'bc\'ba\'c7\'d8\'bc\'ad \'c0\'a7 3\'b0\'b3\'c0\'c7 \'c6\'c4\'c0\'cf\'c0\'bb \'ba\'b9\'bb\'e7\'c7\'cf\'b0\'ed build path\'bf\'a1 \'c3\'df\'b0\'a1\
+\
+1) \'c7\'ca\'bf\'e4\'c7\'d1 \'b6\'f3\'c0\'cc\'ba\'ea\'b7\'af\'b8\'ae\'b8\'a6 \'b4\'d9\'bf\'ee\'b7\'ce\'b5\'e5(3.6.0 Version)\
+=> oracle\'c0\'bb \'c1\'a6\'bf\'dc\'c7\'cf\'b0\'ed\'b4\'c2 www.mvnrepository.com\'bf\'a1 \'b4\'d9\'bf\'ee\'b7\'ce\'b5\'e5 \'b0\'a1\'b4\'c9\
+=> mongo-driver, mongo-driver-core, bson\
+\
+2) \'c7\'c1\'b7\'ce\'c1\'a7\'c6\'ae\'bf\'a1 \'b6\'f3\'c0\'cc\'ba\'ea\'b7\'af\'b8\'ae\'b8\'a6 \'ba\'b9\'bb\'e7\
+=> \'ba\'b9\'bb\'e7\'c7\'cf\'c1\'f6 \'be\'ca\'c0\'b8\'b8\'e9 \'c7\'c1\'b7\'ce\'c1\'a7\'c6\'ae\'b8\'a6 \'bf\'c5\'b1\'e2\'b0\'c5\'b3\'aa \'c6\'c4\'c0\'cf\'c0\'bb \'bb\'e8\'c1\'a6\'c7\'cf\'b8\'e9 \'c7\'c1\'b7\'ce\'c1\'a7\'c6\'ae\'b0\'a1 \'bd\'c7\'c7\'e0\'c0\'cc \'be\'c8\'b5\'cb\'b4\'cf\'b4\'d9.\
+\
+3) \'b6\'f3\'c0\'cc\'ba\'ea\'b7\'af\'b8\'ae\'b8\'a6 \'bc\'b1\'c5\'c3\'c7\'cf\'b0\'ed build path\'bf\'a1 \'c3\'df\'b0\'a1\
+=> \'c6\'c4\'c0\'cf\'c0\'bb \'bc\'b1\'c5\'c3\'c7\'cf\'b0\'ed \'b8\'b6\'bf\'ec\'bd\'ba \'bf\'c0\'b8\'a5\'c2\'ca\'c0\'bb \'c5\'ac\'b8\'af\'c7\'d1 \'c8\'c4 [Build Path] - [Add To Build]\
+=> Maven\'c0\'cc\'b3\'aa Gradle\'c0\'bb \'bb\'e7\'bf\'eb\'c7\'cf\'c1\'f6 \'be\'ca\'b4\'c2 Java Application Project(\'bf\'ee\'bf\'b5\'c3\'bc\'c1\'a6\'bf\'a1 \'bc\'b3\'c4\'a1\'c7\'cf\'b0\'ed \'bd\'c7\'c7\'e0\'bd\'c3\'c5\'b0\'b4\'c2 \'c7\'c1\'b7\'ce\'b1\'d7\'b7\'a5)\
+\'bf\'a1\'bc\'ad\'b4\'c2 \'c0\'cc\'b9\'e6\'b9\'fd\'c0\'bb \'bb\'e7\'bf\'eb\
+\
+3. MongoDB \'bf\'cd \'bf\'ac\'b0\'e1\
+\
+=> new MongoClient(String ip, int port)\
+\
+4. \'b5\'a5\'c0\'cc\'c5\'cd\'ba\'a3\'c0\'cc\'bd\'ba \'b8\'f0\'b5\'e7 \'c4\'c3\'b7\'ba\'bc\'c7 \'c0\'cc\'b8\'a7 \'b0\'a1\'c1\'ae\'bf\'c0\'b1\'e2\
+\
+1) \'b5\'a5\'c0\'cc\'c5\'cd\'ba\'a3\'c0\'cc\'bd\'ba \'bb\'e7\'bf\'eb \'b0\'b4\'c3\'bc \'b8\'b8\'b5\'e9\'b1\'e2 - use \'c7\'d2 \'b6\'a7 \'b8\'b8\'b5\'e7 \'c0\'cc\'b8\'a7\
+\
+- MongoDatabase \'c0\'cc\'b8\'a71 = MongoClient\'b0\'b4\'c3\'bc.getDatabase(String dbname);\
+\
+2) \'b8\'f0\'b5\'e7 \'c4\'c3\'b7\'ba\'bc\'c7 \'c0\'cc\'b8\'a7 \'b0\'a1\'c1\'ae\'bf\'c0\'b1\'e2\
+\
+- MongoIterable<String>\'c0\'cc\'b8\'a72 = \'c0\'cc\'b8\'a71.listCollectionNames();\
+\
+3) \'ba\'fc\'b8\'a5 \'bf\'ad\'b0\'c5\'b8\'a6 \'c0\'cc\'bf\'eb\'c7\'d8\'bc\'ad \'c0\'cc\'b8\'a72\'b8\'a6 \'c1\'a2\'b1\'d9\
+\
+for(String \'c0\'d3\'bd\'c3\'c0\'cc\'b8\'a7 : \'c0\'cc\'b8\'a72)\{\
+\
+\}\
+\
+5. \'b5\'a5\'c0\'cc\'c5\'cd\'ba\'a3\'c0\'cc\'bd\'ba \'b4\'dd\'b1\'e2\
+\
+- MongoClient\'b0\'b4\'c3\'bc.close();\
+\
+6. \'b7\'ce\'c4\'c3\'bf\'a1 \'c0\'d6\'b4\'c2 \'b8\'f9\'b0\'ed \'b5\'a5\'c0\'cc\'c5\'cd\'ba\'a3\'c0\'cc\'bd\'ba\'c0\'c7 mymongo \'b6\'f3\'b4\'c2 \'b5\'a5\'c0\'cc\'c5\'cd\'ba\'a3\'c0\'cc\'bd\'ba\'bf\'a1 \'c0\'d6\'b4\'c2 \'b8\'f0\'b5\'e7 \'c4\'c3\'b7\'ba\'bc\'c7\'c0\'cc\'b8\'a7\'c0\'bb \'c3\'e2\'b7\'c2\
+\
+1) \'c7\'c1\'b7\'ce\'c1\'a7\'c6\'ae\'b0\'a1 \'c0\'fa\'c0\'e5\'b5\'c8 \'b5\'f0\'b7\'ba\'c5\'e4\'b8\'ae\'bf\'a1 db.txt \'c6\'c4\'c0\'cf\'c0\'bb \'b8\'b8\'b5\'e9\'be\'ee\'bc\'ad \'b3\'bb\'bf\'eb\'c0\'bb \'c0\'db\'bc\'ba\
+\
+127.0.0.1,27017,mymongo\
+=> \'c7\'c1\'b7\'ce\'b1\'d7\'b7\'a5\'c0\'cc \'c3\'b3\'c0\'bd\'bf\'a1 \'c0\'d0\'be\'ee\'bc\'ad \'b0\'e8\'bc\'d3 \'bb\'e7\'bf\'eb\'c7\'cf\'b4\'c2 \'c5\'d8\'bd\'ba\'c6\'ae\'b0\'a1 \'c0\'d6\'c0\'bb \'b6\'a7 \'ba\'b0\'b5\'b5\'c0\'c7 \'c6\'c4\'c0\'cf\'bf\'a1 \'b1\'e2\'b7\'cf\'c7\'d8\'b5\'ce\'b0\'ed \'bb\'e7\'bf\'eb\'c7\'cf\'b8\'e9 \'c1\'c1\'c0\'bd.\
+=> \'b3\'bb\'bf\'eb\'c0\'cc \'ba\'af\'b0\'e6\'b5\'c7\'be\'ee\'be\'df \'c7\'cf\'b4\'c2 \'b0\'e6\'bf\'ec \'c6\'c4\'c0\'cf\'c0\'c7 \'b3\'bb\'bf\'eb\'b8\'b8 \'ba\'af\'b0\'e6\'c7\'cf\'b0\'ed \'c7\'c1\'b7\'ce\'b1\'d7\'b7\'a5\'c0\'bb \'b4\'d9\'bd\'c3 \'bd\'c3\'c0\'db\'c7\'cf\'b8\'e9 \'b5\'c7\'b1\'e2 \'b6\'a7\'b9\'ae\'c0\'d4\'b4\'cf\'b4\'d9.\
+=> \'c7\'c1\'b7\'ce\'b1\'d7\'b7\'a5 \'b3\'bb\'c0\'c7 \'c4\'da\'b5\'e5\'b7\'ce \'b8\'b8\'b5\'e9\'b8\'e9 \'bc\'f6\'c1\'a4\'c7\'d2 \'b6\'a7 \'c4\'c4\'c6\'c4\'c0\'cf \'ba\'ce\'c5\'cd \'b4\'d9\'bd\'c3 \'c7\'d8\'be\'df \'c7\'d5\'b4\'cf\'b4\'d9.\
+=> \'c1\'a2\'bc\'d3\'c7\'d2 \'b5\'a5\'c0\'cc\'c5\'cd\'ba\'a3\'c0\'cc\'bd\'ba \'c1\'a4\'ba\'b8\'b3\'aa \'c0\'da\'c1\'d6 \'bb\'e7\'bf\'eb\'c7\'cf\'b4\'c2 \'b8\'de\'bc\'bc\'c1\'f6\'b5\'e9\'c0\'ba \'ba\'b0\'b5\'b5\'c0\'c7 \'c6\'c4\'c0\'cf\'bf\'a1 \'b1\'e2\'b7\'cf\'c7\'d5\'b4\'cf\'b4\'d9.\
+=> \'b1\'b9\'c1\'a6\'c8\'ad(\'b1\'b9\'b0\'a1\'b3\'aa \'be\'f0\'be\'ee \'bc\'b3\'c1\'a4\'bf\'a1 \'b5\'fb\'b6\'f3 \'b4\'d9\'b8\'a3\'b0\'d4 \'ba\'b8\'bf\'a9\'c1\'f6\'b0\'c5\'b3\'aa \'bb\'e7\'bf\'eb\'b5\'c7\'b4\'c2 \'b0\'cd)\'b8\'a6 \'c7\'d2 \'b6\'a7\'b5\'b5 \'c0\'cc\'b9\'e6\'b9\'fd\'c0\'bb \'bb\'e7\'bf\'eb\'c7\'d5\'b4\'cf\'b4\'d9.\
+\
+2) \'c1\'a2\'bc\'d3\'c7\'d8\'bc\'ad \'b5\'a5\'c0\'cc\'c5\'cd\'ba\'a3\'c0\'cc\'bd\'ba\'bf\'a1 \'b8\'b8\'b5\'e9\'be\'ee\'c1\'f8 \'c4\'c3\'b7\'ba\'bc\'c7 \'c8\'ae\'c0\'ce - main \'b8\'de\'bc\'d2\'b5\'e5\'bf\'a1 \'c0\'db\'bc\'ba\
+\
+\pard\pardeftab720\partightenfactor0
+\cf8 package\cf0  com.naver.choch92.mongdb;\
+\cf8 import\cf0  java.io.BufferedReader;\
+\cf8 import\cf0  java.io.FileInputStream;\
+\cf8 import\cf0  java.io.InputStreamReader;\
+\cf8 import\cf0  com.mongodb.MongoClient;\
+\cf8 import\cf0  com.mongodb.client.MongoDatabase;\
+\cf8 import\cf0  com.mongodb.client.MongoIterable;\
+\cf8 public\cf0  \cf8 class\cf0  MongoMain \{\
+	\cf8 public\cf0  \cf8 static\cf0  \cf8 void\cf0  main(String[] \cf9 args\cf0 ) \{\
+		String \cf9 ip\cf0  = \cf8 null\cf0 ;\
+		\cf8 int\cf0  \cf9 port\cf0  = -1;\
+		String \cf9 \ul \ulc9 dbName\cf0 \ulnone  = \cf8 null\cf0 ;\
+		\
+		\cf10 // \'b9\'ae\'c0\'da\'b8\'a6 \'c6\'c4\'c0\'cf\'bf\'a1\'bc\'ad \'c0\'d0\'b1\'e2 \'c0\'a7\'c7\'d1 \'bd\'ba\'c6\'ae\'b8\'b2\'c0\'bb \'bb\'fd\'bc\'ba\cf0 \
+		\cf10 // close()\'c7\'cf\'c1\'f6 \'be\'ca\'b1\'e2 \'c0\'a7\'c7\'d8\'bc\'ad try \'be\'c8\'bf\'a1\'bc\'ad \'bb\'fd\'bc\'ba\cf0 \
+		\cf8 try\cf0 (BufferedReader \cf9 br\cf0  = \cf8 new\cf0  BufferedReader(\
+				\cf8 new\cf0  InputStreamReader(\
+						\cf8 new\cf0  FileInputStream(\cf11 "./db.txt"\cf0 )))) \{\
+			\cf10 // \'c7\'d1 \'c1\'d9 \'c0\'d0\'b1\'e2\cf0 \
+			String \cf9 line\cf0  = \cf9 br\cf0 .readLine();\
+			System.\cf12 out\cf0 .printf(\cf11 "%s\\n"\cf0 , \cf9 line\cf0 );\
+			\cf10 // ,(\'c4\'de\'b8\'b6) \'b7\'ce \'b1\'b8\'ba\'d0\'b5\'c8 \'b9\'ae\'c0\'da\'bf\'ad\'c0\'bb \'b9\'e8\'bf\'ad\'bf\'a1 \'c0\'fa\'c0\'e5\'c7\'cf\'b1\'e2\cf0 \
+			String [] \cf9 ar\cf0  = \cf9 line\cf0 .split(\cf11 ","\cf0 );\
+			\cf9 ip\cf0  = \cf9 ar\cf0 [0];\
+			\cf9 port\cf0  = Integer.parseInt(\cf9 ar\cf0 [1]);\
+			\cf9 dbName\cf0  = \cf9 ar\cf0 [2];\
+			\cf13 /** \'c8\'ae\'c0\'ce\'bf\'eb\'b5\'b5\cf0 \
+\cf13 			System.out.printf("\ul ip\ulnone  : %s\\n", \ul ip\ulnone );\cf0 \
+\cf13 			System.out.printf("port : %d\\n", port);\cf0 \
+\cf13 			System.out.printf("dbName : %s\\n", dbName);\cf0 \
+\cf13 			**/\cf0 	\
+			\cf10 // MongoDB \'bf\'ac\'b0\'e1\cf0 \
+			MongoClient \cf9 mc\cf0  = \cf8 new\cf0  MongoClient(\cf9 ip\cf0 ,\cf9 port\cf0 );\
+			\cf10 // \'b5\'a5\'c0\'cc\'c5\'cd\'ba\'a3\'c0\'cc\'bd\'ba \'bf\'ac\'b0\'e1\cf0 \
+			MongoDatabase \cf9 db\cf0  = \cf9 mc\cf0 .getDatabase(\cf11 "mymongo"\cf0 );\
+			\cf10 // \'b5\'a5\'c0\'cc\'c5\'cd\'ba\'a3\'c0\'cc\'bd\'ba \'b8\'f0\'b5\'e7 \'c4\'c3\'b7\'ba\'bc\'c7 \'b0\'a1\'c1\'ae\'bf\'c0\'b1\'e2\cf0 \
+			MongoIterable<String> \cf9 collections\cf0  = \cf9 db\cf0 .listCollectionNames();\
+			\cf10 // \'ba\'fc\'b8\'a5\'bf\'ad\'b0\'c5\'b8\'a6 \'c0\'cc\'bf\'eb\'c7\'d8\'bc\'ad \'c1\'a2\'b1\'d9\cf0 \
+			\cf8 for\cf0 (String \cf9 collection\cf0  : \cf9 collections\cf0 ) \{\
+				System.\cf12 out\cf0 .printf(\cf11 "%s\\n"\cf0 , \cf9 collection\cf0 );\
+			\}\
+			\cf9 mc\cf0 .close();\
+		\}\cf8 catch\cf0 (Exception \cf9 e\cf0 ) \{\
+			System.\cf12 out\cf0 .printf(\cf11 "\'c6\'c4\'c0\'cf \'c0\'d0\'b1\'e2 \'bf\'b9\'bf\'dc : %s\\n"\cf0 , \cf9 e\cf0 .getMessage());\
+			\cf9 e\cf0 .printStackTrace();\
+			System.exit(0);\
+		\}\
+	\}\
+\}\
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural\partightenfactor0
+\cf0 \'b0\'e1\'b0\'fa)\
+\pard\pardeftab720\partightenfactor0
+\cf0 127.0.0.1,27017,mymongo\
+users\
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural\partightenfactor0
+\cf0 \
+7. MongDB\'bf\'a1 \'b5\'a5\'c0\'cc\'c5\'cd \'bb\'f0\'c0\'d4\
+\
+1) \'bb\'f0\'c0\'d4 \'b9\'e6\'b9\'fd\
+\
+- \'bb\'f0\'c0\'d4\'c7\'d2 Collection \'b0\'a1\'c1\'ae\'bf\'c0\'b1\'e2\
+=> MongoCollection \'c4\'c3\'b7\'ba\'bc\'c7 \'ba\'af\'bc\'f6 = MongoDatabase\'b0\'b4\'c3\'bc.getCollection(\'a1\'b0\'c4\'c3\'b7\'ba\'bc\'c7\'c0\'cc\'b8\'a7\'a1\'b1);\
+\
+- \'bb\'e7\'bf\'eb \'b1\'c7\'c7\'d1\'c0\'bb \'bc\'b3\'c1\'a4\
+=> \'c4\'c3\'b7\'ba\'bc\'c7\'ba\'af\'bc\'f6.getWriteConcern();\
+\
+- Document \'b0\'b4\'c3\'bc\'b8\'a6 \'bb\'fd\'bc\'ba\'c7\'d8\'bc\'ad \'c5\'b0\'bf\'cd \'b0\'aa\'c0\'bb \'bc\'b3\'c1\'a4\
+=> Document \'b5\'b5\'c5\'a5\'b8\'d5\'c6\'ae\'ba\'af\'bc\'f6 = new Document();\
+=> \'b5\'b5\'c5\'a5\'b8\'d5\'c6\'ae\'ba\'af\'bc\'f6.put(String key, \'b5\'a5\'c0\'cc\'c5\'cd);\
+\'a1\'a6.\
+\
+- \'c4\'c3\'b7\'ba\'bc\'c7\'bf\'a1 \'bb\'f0\'c0\'d4\
+=> \'c4\'c3\'b7\'ba\'bc\'c7\'ba\'af\'bc\'f6.insertOne(\'b5\'b5\'c5\'a5\'b8\'d5\'c6\'ae\'ba\'af\'bc\'f6);\
+\
+2) users \'b6\'f3\'b4\'c2 \'c4\'c3\'b7\'ba\'bc\'c7\'bf\'a1 \'b5\'a5\'c0\'cc\'c5\'cd 1\'b0\'b3\'b8\'a6 \'bb\'f0\'c0\'d4\
+=> \'bb\'f0\'c0\'d4\'c7\'cf\'b4\'c2 \'b5\'a5\'c0\'cc\'c5\'cd\'b4\'c2 id\'bf\'a1 ggangpae1, password\'bf\'a1 root\'b8\'a6 \'bb\'f0\'c0\'d4\
+\
+\cf14 package com.naver.choch92.mongdb;\
+import java.io.BufferedReader;\
+import java.io.FileInputStream;\
+import java.io.InputStreamReader;\
+import org.bson.Document;\
+import com.mongodb.MongoClient;\
+import com.mongodb.client.MongoCollection;\
+import com.mongodb.client.MongoDatabase;\
+import com.mongodb.client.MongoIterable;\
+public class MongoMain \{\
+	public static void main(String[] args) \{\
+		String ip = null;\
+		int port = -1;\
+		String dbName = null;\
+		\
+		// \'b9\'ae\'c0\'da\'b8\'a6 \'c6\'c4\'c0\'cf\'bf\'a1\'bc\'ad \'c0\'d0\'b1\'e2 \'c0\'a7\'c7\'d1 \'bd\'ba\'c6\'ae\'b8\'b2\'c0\'bb \'bb\'fd\'bc\'ba\
+		// close()\'c7\'cf\'c1\'f6 \'be\'ca\'b1\'e2 \'c0\'a7\'c7\'d8\'bc\'ad try \'be\'c8\'bf\'a1\'bc\'ad \'bb\'fd\'bc\'ba\
+		try(BufferedReader br = new BufferedReader(\
+				new InputStreamReader(\
+						new FileInputStream("./db.txt")))) \{\
+			// \'c7\'d1 \'c1\'d9 \'c0\'d0\'b1\'e2\
+			String line = br.readLine();\
+			System.out.printf("%s\\n", line);\
+			// ,(\'c4\'de\'b8\'b6) \'b7\'ce \'b1\'b8\'ba\'d0\'b5\'c8 \'b9\'ae\'c0\'da\'bf\'ad\'c0\'bb \'b9\'e8\'bf\'ad\'bf\'a1 \'c0\'fa\'c0\'e5\'c7\'cf\'b1\'e2\
+			String [] ar = line.split(",");\
+			ip = ar[0];\
+			port = Integer.parseInt(ar[1]);\
+			dbName = ar[2];\
+			\
+			// MongoDB \'bf\'ac\'b0\'e1\
+			MongoClient mc = new MongoClient(ip,port);\
+			// \'b5\'a5\'c0\'cc\'c5\'cd\'ba\'a3\'c0\'cc\'bd\'ba \'bf\'ac\'b0\'e1\
+			MongoDatabase db = mc.getDatabase("mymongo");\
+			// \'b5\'a5\'c0\'cc\'c5\'cd\'ba\'a3\'c0\'cc\'bd\'ba \'b8\'f0\'b5\'e7 \'c4\'c3\'b7\'ba\'bc\'c7 \'b0\'a1\'c1\'ae\'bf\'c0\'b1\'e2\
+			MongoIterable<String> collections = db.listCollectionNames();\
+			// \'ba\'fc\'b8\'a5\'bf\'ad\'b0\'c5\'b8\'a6 \'c0\'cc\'bf\'eb\'c7\'d8\'bc\'ad \'c1\'a2\'b1\'d9\
+			for(String collection : collections) \{\
+				System.out.printf("%s\\n", collection);\
+			\}\
+			// \'b5\'a5\'c0\'cc\'c5\'cd\'b8\'a6 \'bb\'f0\'c0\'d4\'c7\'cf\'b0\'c5\'b3\'aa \'bb\'e8\'c1\'a6 \'b9\'d7 \'bc\'f6\'c1\'a4 \'b6\'c7\'b4\'c2 \'c1\'b6\'c8\'b8\'b8\'a6 \'c7\'d2 \'c4\'c3\'b7\'ba\'bc\'c7\'c0\'bb \'b0\'a1\'c1\'ae\'bf\'c0\'b1\'e2\
+			MongoCollection<Document> users = db.getCollection("users");\
+			// \'be\'b2\'b1\'e2\'b1\'c7\'c7\'d1\'c0\'bb \'b0\'a1\'c1\'ae\'bf\'c0\'b1\'e2\
+			users.getWriteConcern();\
+			// \'b1\'e2\'b7\'cf\'c7\'d2 \'b5\'a5\'c0\'cc\'c5\'cd \'b8\'b8\'b5\'e9\'b1\'e2\
+			Document document = new Document();\
+			document.put("id", "ggangpae1");\
+			document.put("password", "root");\
+			// \'b5\'a5\'c0\'cc\'c5\'cd \'bb\'f0\'c0\'d4\
+			users.insertOne(document);\
+			\
+			mc.close();\
+		\}catch(Exception e) \{\
+			System.out.printf("\'c6\'c4\'c0\'cf \'c0\'d0\'b1\'e2 \'bf\'b9\'bf\'dc : %s\\n", e.getMessage());\
+			e.printStackTrace();\
+			System.exit(0);\
+		\}\
+	\}\
+\}\cf0 \
+\'b0\'e1\'b0\'fa)\
+\cf7 \CocoaLigature0 db.users.find()\
+\{ "_id" : ObjectId("5da918ac64a4de8424d9efc9"), "id" : "root", "passwrod" : "1234", "password" : "0000" \}\
+\{ "_id" : ObjectId("5da918e964a4de8424d9efca"), "id" : "user01", "passwrod" : "5678" \}\
+\{ "_id" : ObjectId("5da918f964a4de8424d9efcb"), "id" : "user02", "passwrod" : "1256" \}\
+\{ "_id" : ObjectId("5da955cb433b07144604d155"), "id" : "ggangpae1", "password" : "root" \}\cf0 \CocoaLigature1 \
+\
+8. \'b5\'a5\'c0\'cc\'c5\'cd \'bc\'f6\'c1\'a4\
+\
+1) \'bc\'f6\'c1\'a4\'c7\'cf\'b4\'c2 \'b9\'e6\'b9\'fd\
+\
+=> \'bc\'f6\'c1\'a4\'c7\'d2 \'b0\'b4\'c3\'bc\'b8\'a6 Document \'b0\'b4\'c3\'bc\'b7\'ce \'bb\'fd\'bc\'ba\
+=> \'c4\'c3\'b7\'ba\'bc\'c7\'ba\'af\'bc\'f6.update \'b6\'c7\'b4\'c2 updateOne(Filters.\'c1\'b6\'b0\'c7, new Document(\'a1\'b0$set\'a1\'b1, Document \'b0\'b4\'c3\'bc));\
+\
+2) users \'c4\'c3\'b7\'ba\'bc\'c7\'bf\'a1 \'c0\'d6\'b4\'c2 \'b5\'a5\'c0\'cc\'c5\'cd \'c1\'df\'bf\'a1\'bc\'ad id\'b0\'a1 ggangpae1 \'c0\'ce \'b5\'a5\'c0\'cc\'c5\'cd\'c0\'c7 password\'b8\'a6 tjoeun\'c0\'b8\'b7\'ce \'bc\'f6\'c1\'a4\'c7\'cf\'b0\'ed\
+name\'c0\'bb \'b1\'ba\'b0\'e8\'b7\'ce \'bc\'b3\'c1\'a4\
+\
+package com.naver.choch92.mongdb;\
+import java.io.BufferedReader;\
+import java.io.FileInputStream;\
+import java.io.InputStreamReader;\
+import org.bson.Document;\
+import com.mongodb.MongoClient;\
+import com.mongodb.client.MongoCollection;\
+import com.mongodb.client.MongoDatabase;\
+import com.mongodb.client.MongoIterable;\
+import com.mongodb.client.model.Filters;\
+public class MongoMain \{\
+	public static void main(String[] args) \{\
+		String ip = null;\
+		int port = -1;\
+		String dbName = null;		\
+		// \'b9\'ae\'c0\'da\'b8\'a6 \'c6\'c4\'c0\'cf\'bf\'a1\'bc\'ad \'c0\'d0\'b1\'e2 \'c0\'a7\'c7\'d1 \'bd\'ba\'c6\'ae\'b8\'b2\'c0\'bb \'bb\'fd\'bc\'ba\
+		// close()\'c7\'cf\'c1\'f6 \'be\'ca\'b1\'e2 \'c0\'a7\'c7\'d8\'bc\'ad try \'be\'c8\'bf\'a1\'bc\'ad \'bb\'fd\'bc\'ba\
+		try(BufferedReader br = new BufferedReader(\
+				new InputStreamReader(\
+						new FileInputStream("./db.txt")))) \{\
+			// \'c7\'d1 \'c1\'d9 \'c0\'d0\'b1\'e2\
+			String line = br.readLine();\
+			System.out.printf("%s\\n", line);\
+			// ,(\'c4\'de\'b8\'b6) \'b7\'ce \'b1\'b8\'ba\'d0\'b5\'c8 \'b9\'ae\'c0\'da\'bf\'ad\'c0\'bb \'b9\'e8\'bf\'ad\'bf\'a1 \'c0\'fa\'c0\'e5\'c7\'cf\'b1\'e2\
+			String [] ar = line.split(",");\
+			ip = ar[0];\
+			port = Integer.parseInt(ar[1]);\
+			dbName = ar[2];\
+			// MongoDB \'bf\'ac\'b0\'e1\
+			MongoClient mc = new MongoClient(ip,port);\
+			// \'b5\'a5\'c0\'cc\'c5\'cd\'ba\'a3\'c0\'cc\'bd\'ba \'bf\'ac\'b0\'e1\
+			MongoDatabase db = mc.getDatabase("mymongo");\
+			// \'b5\'a5\'c0\'cc\'c5\'cd\'ba\'a3\'c0\'cc\'bd\'ba \'b8\'f0\'b5\'e7 \'c4\'c3\'b7\'ba\'bc\'c7 \'b0\'a1\'c1\'ae\'bf\'c0\'b1\'e2\
+			MongoIterable<String> collections = db.listCollectionNames();\
+			// \'ba\'fc\'b8\'a5\'bf\'ad\'b0\'c5\'b8\'a6 \'c0\'cc\'bf\'eb\'c7\'d8\'bc\'ad \'c1\'a2\'b1\'d9\
+			for(String collection : collections) \{\
+				System.out.printf("%s\\n", collection);\
+			\}\
+			// \'b5\'a5\'c0\'cc\'c5\'cd\'b8\'a6 \'bb\'f0\'c0\'d4\'c7\'cf\'b0\'c5\'b3\'aa \'bb\'e8\'c1\'a6 \'b9\'d7 \'bc\'f6\'c1\'a4 \'b6\'c7\'b4\'c2 \'c1\'b6\'c8\'b8\'b8\'a6 \'c7\'d2 \'c4\'c3\'b7\'ba\'bc\'c7\'c0\'bb \'b0\'a1\'c1\'ae\'bf\'c0\'b1\'e2\
+			MongoCollection<Document> users = db.getCollection("users");\
+			// \'be\'b2\'b1\'e2\'b1\'c7\'c7\'d1\'c0\'bb \'b0\'a1\'c1\'ae\'bf\'c0\'b1\'e2\
+			users.getWriteConcern();\
+			// \'bc\'f6\'c1\'a4\'c7\'d2 \'b5\'a5\'c0\'cc\'c5\'cd \'b8\'b8\'b5\'e9\'b1\'e2\
+			document = new Document();\
+			document.put("password", "tjoeun");\
+			document.put("name", "\'b1\'ba\'b0\'e8");\
+			// \'b5\'a5\'c0\'cc\'c5\'cd \'bc\'f6\'c1\'a4\
+			users.updateMany(Filters.eq("id", "ggangpae1"), new Document("$set", document));\
+			mc.close();\
+		\}catch(Exception e) \{\
+			System.out.printf("\'c6\'c4\'c0\'cf \'c0\'d0\'b1\'e2 \'bf\'b9\'bf\'dc : %s\\n", e.getMessage());\
+			e.printStackTrace();\
+			System.exit(0);\
+		\}\
+	\}\
+\}\
+\'b0\'e1\'b0\'fa)\
+\cf7 \CocoaLigature0 db.users.find()\
+\{ "_id" : ObjectId("5da918ac64a4de8424d9efc9"), "id" : "root", "passwrod" : "1234", "password" : "0000" \}\
+\{ "_id" : ObjectId("5da918e964a4de8424d9efca"), "id" : "user01", "passwrod" : "5678" \}\
+\{ "_id" : ObjectId("5da918f964a4de8424d9efcb"), "id" : "user02", "passwrod" : "1256" \}\
+\{ "_id" : ObjectId("5da955cb433b07144604d155"), "id" : "ggangpae1", "password" : "tjoeun", "name" : "\'b1\'ba\'b0\'e8" \}\cf0 \CocoaLigature1 \
+\
+9. \'b5\'a5\'c0\'cc\'c5\'cd \'bb\'e8\'c1\'a6\
+\
+1) \'bb\'e8\'c1\'a6 \'b9\'e6\'b9\'fd\
+\
+- \'c4\'c3\'b7\'a2\'bc\'c7\'b0\'b4\'c3\'bc.deleteMany \'b6\'c7\'b4\'c2 deleteOne(Filters.\'c1\'b6\'b0\'c7);\
+\
+2) users \'c4\'c3\'b7\'ba\'bc\'c7\'bf\'a1\'bc\'ad id\'b0\'a1 ggangpae1\'c0\'ce \'b5\'a5\'c0\'cc\'c5\'cd\'b8\'a6 \'bb\'e8\'c1\'a6\
+\
+package com.naver.choch92.mongdb;\
+import java.io.BufferedReader;\
+import java.io.FileInputStream;\
+import java.io.InputStreamReader;\
+import org.bson.Document;\
+import com.mongodb.MongoClient;\
+import com.mongodb.client.MongoCollection;\
+import com.mongodb.client.MongoDatabase;\
+import com.mongodb.client.MongoIterable;\
+import com.mongodb.client.model.Filters;\
+public class MongoMain \{\
+	public static void main(String[] args) \{\
+		String ip = null;\
+		int port = -1;\
+		String dbName = null;		\
+		// \'b9\'ae\'c0\'da\'b8\'a6 \'c6\'c4\'c0\'cf\'bf\'a1\'bc\'ad \'c0\'d0\'b1\'e2 \'c0\'a7\'c7\'d1 \'bd\'ba\'c6\'ae\'b8\'b2\'c0\'bb \'bb\'fd\'bc\'ba\
+		// close()\'c7\'cf\'c1\'f6 \'be\'ca\'b1\'e2 \'c0\'a7\'c7\'d8\'bc\'ad try \'be\'c8\'bf\'a1\'bc\'ad \'bb\'fd\'bc\'ba\
+		try(BufferedReader br = new BufferedReader(\
+				new InputStreamReader(\
+						new FileInputStream("./db.txt")))) \{\
+			// \'c7\'d1 \'c1\'d9 \'c0\'d0\'b1\'e2\
+			String line = br.readLine();\
+			System.out.printf("%s\\n", line);\
+			// ,(\'c4\'de\'b8\'b6) \'b7\'ce \'b1\'b8\'ba\'d0\'b5\'c8 \'b9\'ae\'c0\'da\'bf\'ad\'c0\'bb \'b9\'e8\'bf\'ad\'bf\'a1 \'c0\'fa\'c0\'e5\'c7\'cf\'b1\'e2\
+			String [] ar = line.split(",");\
+			ip = ar[0];\
+			port = Integer.parseInt(ar[1]);\
+			dbName = ar[2];\
+			// MongoDB \'bf\'ac\'b0\'e1\
+			MongoClient mc = new MongoClient(ip,port);\
+			// \'b5\'a5\'c0\'cc\'c5\'cd\'ba\'a3\'c0\'cc\'bd\'ba \'bf\'ac\'b0\'e1\
+			MongoDatabase db = mc.getDatabase("mymongo");\
+			// \'b5\'a5\'c0\'cc\'c5\'cd\'ba\'a3\'c0\'cc\'bd\'ba \'b8\'f0\'b5\'e7 \'c4\'c3\'b7\'ba\'bc\'c7 \'b0\'a1\'c1\'ae\'bf\'c0\'b1\'e2\
+			MongoIterable<String> collections = db.listCollectionNames();\
+			// \'ba\'fc\'b8\'a5\'bf\'ad\'b0\'c5\'b8\'a6 \'c0\'cc\'bf\'eb\'c7\'d8\'bc\'ad \'c1\'a2\'b1\'d9\
+			for(String collection : collections) \{\
+				System.out.printf("%s\\n", collection);\
+			\}		\
+			// \'b5\'a5\'c0\'cc\'c5\'cd\'b8\'a6 \'bb\'f0\'c0\'d4\'c7\'cf\'b0\'c5\'b3\'aa \'bb\'e8\'c1\'a6 \'b9\'d7 \'bc\'f6\'c1\'a4 \'b6\'c7\'b4\'c2 \'c1\'b6\'c8\'b8\'b8\'a6 \'c7\'d2 \'c4\'c3\'b7\'ba\'bc\'c7\'c0\'bb \'b0\'a1\'c1\'ae\'bf\'c0\'b1\'e2\
+			MongoCollection<Document> users = db.getCollection("users");\
+			// \'be\'b2\'b1\'e2\'b1\'c7\'c7\'d1\'c0\'bb \'b0\'a1\'c1\'ae\'bf\'c0\'b1\'e2\
+			users.getWriteConcern();\
+			// \'b5\'a5\'c0\'cc\'c5\'cd \'bb\'e8\'c1\'a6\
+			users.deleteMany(Filters.eq("id", "ggangpae1"));	\
+			mc.close();\
+		\}catch(Exception e) \{\
+			System.out.printf("\'c6\'c4\'c0\'cf \'c0\'d0\'b1\'e2 \'bf\'b9\'bf\'dc : %s\\n", e.getMessage());\
+			e.printStackTrace();\
+			System.exit(0);\
+		\}\
+	\}\
+\}\
+\
+\'b0\'e1\'b0\'fa)\
+\cf7 \CocoaLigature0 db.users.find()\
+\{ "_id" : ObjectId("5da918ac64a4de8424d9efc9"), "id" : "root", "passwrod" : "1234", "password" : "0000" \}\
+\{ "_id" : ObjectId("5da918e964a4de8424d9efca"), "id" : "user01", "passwrod" : "5678" \}\
+\{ "_id" : ObjectId("5da918f964a4de8424d9efcb"), "id" : "user02", "passwrod" : "1256" \}\
+\cf0 \CocoaLigature1 \
+10. \'b5\'a5\'c0\'cc\'c5\'cd \'c0\'d0\'b1\'e2\
+\
+1) \'c0\'d0\'b4\'c2 \'b9\'e6\'b9\'fd\
+\
+FindIterable<Document> \'c0\'d0\'b1\'e2\'b0\'b4\'c3\'bc = \'c4\'c3\'b7\'ba\'bc\'c7\'b0\'b4\'c3\'bc.find(Filters.\'c1\'b6\'b0\'c7);\
+=> \'c1\'b6\'b0\'c7\'c0\'cc \'bb\'fd\'b7\'ab\'b5\'c7\'b8\'e9 \'c4\'c3\'b7\'ba\'bc\'c7\'c0\'c7 \'b8\'f0\'b5\'e7 \'b5\'a5\'c0\'cc\'c5\'cd\'b8\'a6 \'b0\'a1\'c1\'ae\'bf\'c9\'b4\'cf\'b4\'d9.\
+\
+2) users \'c4\'c3\'b7\'ba\'bc\'c7\'c0\'c7 \'b8\'f0\'b5\'e7 \'b5\'a5\'c0\'cc\'c5\'cd\'b8\'a6 \'c0\'d0\'be\'ee\'bc\'ad \'c3\'e2\'b7\'c2\'c7\'cf\'b1\'e2\
+\
+package com.naver.choch92.mongdb;\
+import java.io.BufferedReader;\
+import java.io.FileInputStream;\
+import java.io.InputStreamReader;\
+import org.bson.Document;\
+import com.mongodb.MongoClient;\
+import com.mongodb.client.FindIterable;\
+import com.mongodb.client.MongoCollection;\
+import com.mongodb.client.MongoDatabase;\
+import com.mongodb.client.MongoIterable;\
+import com.mongodb.client.model.Filters;\
+public class MongoMain \{\
+	public static void main(String[] args) \{\
+		String ip = null;\
+		int port = -1;\
+		String dbName = null;		\
+		// \'b9\'ae\'c0\'da\'b8\'a6 \'c6\'c4\'c0\'cf\'bf\'a1\'bc\'ad \'c0\'d0\'b1\'e2 \'c0\'a7\'c7\'d1 \'bd\'ba\'c6\'ae\'b8\'b2\'c0\'bb \'bb\'fd\'bc\'ba\
+		// close()\'c7\'cf\'c1\'f6 \'be\'ca\'b1\'e2 \'c0\'a7\'c7\'d8\'bc\'ad try \'be\'c8\'bf\'a1\'bc\'ad \'bb\'fd\'bc\'ba\
+		try(BufferedReader br = new BufferedReader(\
+				new InputStreamReader(\
+						new FileInputStream("./db.txt")))) \{\
+			// \'c7\'d1 \'c1\'d9 \'c0\'d0\'b1\'e2\
+			String line = br.readLine();\
+			System.out.printf("%s\\n", line);\
+			// ,(\'c4\'de\'b8\'b6) \'b7\'ce \'b1\'b8\'ba\'d0\'b5\'c8 \'b9\'ae\'c0\'da\'bf\'ad\'c0\'bb \'b9\'e8\'bf\'ad\'bf\'a1 \'c0\'fa\'c0\'e5\'c7\'cf\'b1\'e2\
+			String [] ar = line.split(",");\
+			ip = ar[0];\
+			port = Integer.parseInt(ar[1]);\
+			dbName = ar[2];\
+			// MongoDB \'bf\'ac\'b0\'e1\
+			MongoClient mc = new MongoClient(ip,port);\
+			// \'b5\'a5\'c0\'cc\'c5\'cd\'ba\'a3\'c0\'cc\'bd\'ba \'bf\'ac\'b0\'e1\
+			MongoDatabase db = mc.getDatabase("mymongo");\
+			// \'b5\'a5\'c0\'cc\'c5\'cd\'ba\'a3\'c0\'cc\'bd\'ba \'b8\'f0\'b5\'e7 \'c4\'c3\'b7\'ba\'bc\'c7 \'b0\'a1\'c1\'ae\'bf\'c0\'b1\'e2\
+			MongoIterable<String> collections = db.listCollectionNames();\
+			// \'ba\'fc\'b8\'a5\'bf\'ad\'b0\'c5\'b8\'a6 \'c0\'cc\'bf\'eb\'c7\'d8\'bc\'ad \'c1\'a2\'b1\'d9\
+			for(String collection : collections) \{\
+				System.out.printf("%s\\n", collection);\
+			\}\
+			// \'b5\'a5\'c0\'cc\'c5\'cd\'b8\'a6 \'bb\'f0\'c0\'d4\'c7\'cf\'b0\'c5\'b3\'aa \'bb\'e8\'c1\'a6 \'b9\'d7 \'bc\'f6\'c1\'a4 \'b6\'c7\'b4\'c2 \'c1\'b6\'c8\'b8\'b8\'a6 \'c7\'d2 \'c4\'c3\'b7\'ba\'bc\'c7\'c0\'bb \'b0\'a1\'c1\'ae\'bf\'c0\'b1\'e2\
+			MongoCollection<Document> users = db.getCollection("users");\
+			// \'be\'b2\'b1\'e2\'b1\'c7\'c7\'d1\'c0\'bb \'b0\'a1\'c1\'ae\'bf\'c0\'b1\'e2\
+			users.getWriteConcern();\
+			// \'b5\'a5\'c0\'cc\'c5\'cd \'c0\'d0\'b1\'e2\
+			FindIterable<Document> documents = users.find(Filters.eq("id","user02"));\
+			for(Document document : documents) \{\
+				System.out.printf("%s\\n", document);\
+			\}	\
+			mc.close();\
+		\}catch(Exception e) \{\
+			System.out.printf("\'c6\'c4\'c0\'cf \'c0\'d0\'b1\'e2 \'bf\'b9\'bf\'dc : %s\\n", e.getMessage());\
+			e.printStackTrace();\
+			System.exit(0);\
+		\}\
+	\}\
+\}\
+\
+\'b0\'e1\'b0\'fa)\
+Ecilpse Console\
+\pard\pardeftab720\partightenfactor0
+\cf0 Document\{\{_id=5da918f964a4de8424d9efcb, id=user02, passwrod=1256\}\}\
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural\partightenfactor0
+\cf0 \
+** Lambda\
+\
+=> JDK 1.7\'b9\'f6\'c0\'fc\'ba\'ce\'c5\'cd \'c1\'f6\'bf\'f8\
+=> \'c0\'cc\'b8\'a7\'be\'f8\'b4\'c2 \'c7\'d4\'bc\'f6\'b8\'a6 \'b8\'b8\'b5\'e9\'b1\'e2 \'c0\'a7\'c7\'d8\'bc\'ad \'b5\'ee\'c0\'e5\
+=> \'b8\'de\'bc\'d2\'b5\'e5\'b0\'a1 1\'b0\'b3\'c0\'ce \'c0\'ce\'c5\'cd\'c6\'e4\'c0\'cc\'bd\'ba\'b8\'a6 \'b1\'b8\'c7\'f6\'c7\'d2 \'b6\'a7 \'bb\'e7\'bf\'eb\
+=> \'bd\'ba\'c6\'ae\'b8\'b2 API\'bf\'a1\'bc\'ad \'c0\'db\'be\'f7\'c0\'bb \'b4\'eb\'c0\'d4\'c7\'d2\'b6\'a7 \'c0\'cc\'bf\'eb\
+=> \'be\'c8\'b5\'e5\'b7\'ce\'c0\'cc\'b5\'e5\'c0\'c7 \'c0\'cc\'ba\'a5\'c6\'ae \'c3\'b3\'b8\'ae\'bf\'a1 \'c0\'cc\'bf\'eb\
+\
+ex) Runnable \'c0\'ce\'c5\'cd\'c6\'e4\'c0\'cc\'bd\'ba\'b8\'a6 \'b1\'b8\'c7\'f6\
+\
+=> Runnable \'c0\'ce\'c5\'cd\'c6\'e4\'c0\'cc\'bd\'ba\'bf\'a1\'b4\'c2 public void run() \'b8\'de\'bc\'d2\'b5\'e5\'b8\'b8 \'c1\'b8\'c0\'e7\
+=> anonymous\'b7\'ce \'bb\'e7\'bf\'eb\'c0\'bb \'c7\'cf\'b0\'ed\'c0\'da \'c7\'d2\'b6\'a7\
+new Runnable()\{\
+	public void run()\{\
+		\'c7\'ca\'bf\'e4\'c7\'d1 \'b3\'bb\'bf\'eb \'c0\'db\'bc\'ba\
+	\}\
+\};\
+\
+=> \'b6\'f7\'b4\'d9\'b8\'a6 \'c0\'cc\'bf\'eb\'c7\'d8\'bc\'ad \'c0\'db\'bc\'ba\
+() ->\{\
+	\'c7\'ca\'bf\'e4\'c7\'d1 \'b3\'bb\'bf\'eb \'c0\'db\'bc\'ba\
+\}\
+\
+\'bd\'c7\'bd\'c0) 10\'c3\'ca\'b8\'b6\'b4\'d9 Hello Lambda\'b8\'a6 \'c3\'e2\'b7\'c2\'c7\'cf\'b4\'c2 \'bd\'ba\'b7\'b9\'b5\'e5\'b8\'a6 \'bb\'fd\'bc\'ba\'c7\'d8\'bc\'ad \'bd\'c7\'c7\'e0\
+\
+- Thread\'b8\'a6 \'bb\'e7\'bf\'eb\'c7\'cf\'bf\'a9 \'bb\'fd\'bc\'ba\
+\pard\pardeftab720\partightenfactor0
+\cf8 package\cf0  com.naver.choch92.lamdba;\
+\cf8 public\cf0  \cf8 class\cf0  Lambda \{\
+	\cf8 public\cf0  \cf8 static\cf0  \cf8 void\cf0  main(String[] \cf9 args\cf0 ) \{\
+		\cf10 // Runnable \'c0\'ce\'c5\'cd\'c6\'e4\'c0\'cc\'bd\'ba\'b8\'a6 \'c0\'cc\'bf\'eb\'c7\'d8\'bc\'ad \'bd\'ba\'b7\'b9\'b5\'e5\'b8\'a6 \'bb\'fd\'bc\'ba\'c7\'d8\'bc\'ad \'bd\'c7\'c7\'e0\cf0 \
+		Thread \cf9 th1\cf0  = \cf8 new\cf0  Thread(\
+				\cf8 new\cf0  Runnable() \{\
+					\cf8 public\cf0  \cf8 void\cf0  run() \{\
+						\cf8 try\cf0  \{\
+							\cf8 for\cf0 (\cf8 int\cf0  \cf9 i\cf0 =0; \cf9 i\cf0 <10; \cf9 i\cf0 =\cf9 i\cf0 +1) \{\
+								Thread.sleep(1000);\
+								System.\cf12 out\cf0 .printf(\cf11 "Annonymous\\n"\cf0 );\
+							\}\
+						\}\cf8 catch\cf0 (Exception \cf9 e\cf0 ) \{\}					\
+					\}\
+				\});\
+		\cf9 th1\cf0 .start();\
+	\}\
+\}\
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural\partightenfactor0
+\cf0 \'b0\'e1\'b0\'fa)\
+Annonymous\'a1\'a6(10\'c3\'ca\'b8\'b6\'b4\'d9 10\'b9\'f8\'b1\'ee\'c1\'f6 \'bb\'fd\'bc\'ba)\
+\
+- Lambda\'b8\'a6 \'bb\'e7\'bf\'eb\'c7\'d8\'bc\'ad \'bb\'fd\'bc\'ba\
+\
+\pard\pardeftab720\partightenfactor0
+\cf8 package\cf0  com.naver.choch92.lamdba;\
+\cf8 public\cf0  \cf8 class\cf0  Lambda \{\
+	\cf8 public\cf0  \cf8 static\cf0  \cf8 void\cf0  main(String[] \cf9 args\cf0 ) \{\
+\
+		Thread \cf9 th2\cf0  = \cf8 new\cf0  Thread(\
+				()-> \{\
+				\cf8 try\cf0  \{\
+					\cf8 for\cf0 (\cf8 int\cf0  \cf9 i\cf0 =0; \cf9 i\cf0 <10; \cf9 i\cf0 =\cf9 i\cf0 +1) \{\
+						Thread.sleep(1000);\
+						System.\cf12 out\cf0 .printf(\cf11 "Annonymous\\n"\cf0 );\
+					\}\
+				\}\cf8 catch\cf0 (Exception \cf9 e\cf0 ) \{\}	\
+			\}\
+		);\
+		\cf9 th2\cf0 .start();		\
+	\}\
+\}\
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural\partightenfactor0
+\cf0 \'b0\'e1\'b0\'fa)\
+Annonymous\'a1\'a6(10\'c3\'ca\'b8\'b6\'b4\'d9 10\'b9\'f8\'b1\'ee\'c1\'f6 \'bb\'fd\'bc\'ba)\
+\
+** \'c7\'d4\'bc\'f6\'c0\'fb \'bd\'ba\'c5\'b8\'c0\'cf\'c0\'c7 \'b6\'f7\'b4\'d9\'bd\'c4 \'c0\'db\'bc\'ba\'b9\'fd\
+\
+(\'c0\'da\'b7\'e1\'c7\'fc \'b8\'c5\'b0\'b3\'ba\'af\'bc\'f6, \'a1\'a6) -> \{\'c7\'d4\'bc\'f6\'c0\'c7 \'b3\'bb\'bf\'eb \'c0\'db\'bc\'ba\}\
+\
+- \'b8\'c5\'b0\'b3\'ba\'af\'bc\'f6\'c0\'c7 \'c0\'da\'b7\'e1\'c7\'fc\'c0\'ba \'bb\'fd\'b7\'ab\'c0\'cc \'b0\'a1\'b4\'c9 - \'c7\'d4\'bc\'f6\'b0\'a1 \'bd\'c7\'c7\'e0\'b5\'c9 \'b6\'a7 \'b4\'eb\'c0\'d4\'b5\'c7\'b4\'c2 \'b8\'c5\'b0\'b3\'ba\'af\'bc\'f6\'b8\'a6 \'b0\'a1\'c1\'f6\'b0\'ed \'b8\'c5\'b0\'b3\'ba\'af\'bc\'f6\'c0\'c7 \'c0\'da\'b7\'e1\'c7\'fc\'c0\'bb\
+\'c0\'af\'c3\'df\'c7\'d8\'bc\'ad \'bd\'c7\'c7\'e0\
+- \'b8\'c5\'b0\'b3\'ba\'af\'bc\'f6\'b0\'a1 1\'b0\'b3\'c0\'ce \'b0\'e6\'bf\'ec\'b4\'c2 ( )\'b8\'a6 \'bb\'fd\'b7\'ab \'b0\'a1\'b4\'c9\
+- \'be\'f8\'b4\'c2 \'b0\'e6\'bf\'ec\'bf\'a1\'b4\'c2 \'bb\'fd\'b7\'ab\'c0\'bb \'b8\'f8\'c7\'d4\
+- \'bd\'c7\'c7\'e0\'c7\'cf\'b4\'c2 \'b9\'ae\'c0\'e5\'c0\'cc \'c7\'cf\'b3\'aa\'c0\'ce \'b0\'e6\'bf\'ec\'b4\'c2 \{ \}\'b8\'a6 \'bb\'fd\'b7\'ab \'b0\'a1\'b4\'c9\
+- \'c7\'d4\'bc\'f6\'b0\'a1 \'bd\'c7\'c7\'e0 \'b0\'e1\'b0\'fa\'b8\'a6 \'b8\'ae\'c5\'cf\'c7\'d8\'be\'df \'c7\'cf\'b8\'e9 return \'b9\'ae\'c0\'e5\'c0\'bb \'b8\'b8\'b5\'e9\'b8\'e9 \'b5\'cb\'b4\'cf\'b4\'d9.\
+\
+** \'c0\'da\'b9\'d9\'bf\'a1\'bc\'ad \'b6\'f7\'b4\'d9\'bd\'c4\'c0\'b8\'b7\'ce \'c0\'db\'bc\'ba\'b5\'c8 \'b8\'de\'bc\'d2\'b5\'e5 \'c8\'a3\'c3\'e2\
+\
+- \'c0\'da\'b9\'d9\'b4\'c2 \'b1\'d9\'ba\'bb\'c0\'fb\'c0\'b8\'b7\'ce \'c7\'d4\'bc\'f6 \'b4\'dc\'c0\'a7\'b7\'ce \'c8\'a3\'c3\'e2\'c0\'cc \'be\'c8\'b5\'c7\'b1\'e2 \'b6\'a7\'b9\'ae\'bf\'a1 \'b6\'f7\'b4\'d9\'bd\'c4\'c0\'b8\'b7\'ce \'c0\'db\'bc\'ba\'c7\'d1 \'b9\'ae\'c0\'e5\'c0\'bb \'c8\'a3\'c3\'e2\'c7\'cf\'b7\'c1\'b8\'e9 \'c0\'ce\'c5\'cd\'c6\'e4\'c0\'cc\'bd\'ba \'c5\'b8\'c0\'d4\'c0\'c7\
+\'ba\'af\'bc\'f6\'bf\'a1 \'b4\'eb\'c0\'d4\'c7\'d8\'bc\'ad \'bb\'e7\'bf\'eb\
+- \'be\'c6\'c1\'f7\'b1\'ee\'c1\'f6\'b4\'c2 \'c0\'cf\'b9\'dd \'c0\'da\'b9\'d9 \'c7\'c1\'b7\'ce\'b1\'d7\'b7\'a1\'b9\'d6\'bf\'a1\'bc\'ad\'b4\'c2 \'b6\'f7\'b4\'d9\'b8\'a6 \'c0\'df \'bb\'e7\'bf\'eb\'c7\'cf\'c1\'f6 \'be\'ca\'b0\'ed \'bd\'ba\'c6\'ae\'b8\'b2 API\'bf\'cd \'be\'c8\'b5\'e5\'b7\'ce\'c0\'cc\'b5\'e5\'bf\'a1\'bc\'ad \'c0\'cc\'ba\'a5\'c6\'ae\'c7\'da\'b5\'e9\'b8\'b5\
+\'c7\'cf\'b4\'c2 \'b0\'f7\'bf\'a1\'b8\'b8 \'c1\'d6\'b7\'ce \'c0\'cc\'bf\'eb\
+\
+\'b8\'de\'bc\'d2\'b5\'e5\'b0\'a1 1\'b0\'b3\'c0\'ce \'c0\'ce\'c5\'cd\'c6\'e4\'c0\'cc\'bd\'ba \'ba\'af\'bc\'f6 = \'b6\'f7\'b4\'d9\'bd\'c4;\
+\'ba\'af\'bc\'f6.\'b8\'de\'bc\'d2\'b5\'e5();\
+=> \'c0\'a7\'bf\'cd \'b0\'b0\'c0\'cc \'b6\'f7\'b4\'d9\'bd\'c4\'c0\'bb \'c8\'a3\'c3\'e2\'c7\'d8\'be\'df \'c7\'d5\'b4\'cf\'b4\'d9.\
+\
+** \'c7\'d4\'bc\'f6\'c0\'fb \'c0\'ce\'c5\'cd\'c6\'e4\'c0\'cc\'bd\'ba - JDK1.8 \'ba\'ce\'c5\'cd \'c1\'f6\'bf\'f8\
+\
+- \'b6\'f7\'b4\'d9\'bd\'c4\'c0\'bb \'bb\'e7\'bf\'eb\'c7\'d2 \'bc\'f6 \'c0\'d6\'b4\'c2 \'c0\'ce\'c5\'cd\'c6\'e4\'c0\'cc\'bd\'ba - \'b8\'de\'bc\'d2\'b5\'e5\'b0\'a1 1\'b0\'b3\'c0\'ce \'c0\'ce\'c5\'cd\'c6\'e4\'c0\'cc\'bd\'ba\
+- \'b8\'ed\'bd\'c3\'c0\'fb\'c0\'b8\'b7\'ce \'c7\'d4\'bc\'f6\'c0\'fb \'c0\'ce\'c5\'cd\'c6\'e4\'c0\'cc\'bd\'ba \'b6\'f3\'b4\'c2 \'b0\'cd\'c0\'bb \'be\'cb\'b7\'c1 \'c1\'d9 \'b6\'a7\'b4\'c2 @FunctionallInterface \'b6\'f3\'b4\'c2 \'be\'ee\'b3\'eb\'c5\'d7\'c0\'cc\'bc\'c7\'c0\'bb \'c0\'ce\'c5\'cd\'c6\'e4\'c0\'cc\'bd\'ba \'bc\'b1\'be\'f0\'b9\'ae\
+\'c0\'a7\'bf\'a1 \'c3\'df\'b0\'a1\
+- \'c4\'c4\'c6\'c4\'c0\'cf\'b7\'af\'b0\'a1 \'c4\'c4\'c6\'c4\'c0\'cf\'c0\'bb \'c7\'d2 \'b6\'a7 \'b8\'de\'bc\'d2\'b5\'e5\'b0\'a1 1\'b0\'b3\'c0\'ce\'c1\'f6 \'c8\'ae\'c0\'ce\'c0\'bb \'c7\'d8\'bc\'ad 1\'b0\'b3\'b0\'a1 \'be\'c6\'b4\'cf\'b8\'e9 \'bf\'a1\'b7\'af\'b8\'a6 \'b9\'df\'bb\'fd\'bd\'c3\'c5\'b5\'b4\'cf\'b4\'d9.\
+\
+\'bd\'c7\'bd\'c0)\
+- \'b8\'c5\'b0\'b3\'ba\'af\'bc\'f6\'b0\'a1 \'be\'f8\'b4\'c2 \'c3\'df\'bb\'f3\'b8\'de\'bc\'d2\'b5\'e5\'b8\'a6 \'b0\'a1\'c1\'f8 \'c0\'ce\'c5\'cd\'c6\'e4\'c0\'cc\'bd\'ba\
+- \'b8\'c5\'b0\'b3\'ba\'af\'bc\'f6\'b0\'a1 \'c0\'d6\'b4\'c2 \'c3\'df\'bb\'f3\'b8\'de\'bc\'d2\'b5\'e5\'b8\'a6 \'b0\'a1\'c1\'f8 \'c0\'ce\'c5\'cd\'c6\'e4\'c0\'cc\'bd\'ba\
+- \'b8\'ae\'c5\'cf\'c0\'cc \'c0\'d6\'b4\'c2 \'c3\'df\'bb\'f3\'b8\'de\'bc\'d2\'b5\'e5\'b8\'a6 \'b0\'a1\'c1\'f8 \'c0\'ce\'c5\'cd\'c6\'e4\'c0\'cc\'bd\'ba\
+- 3\'b0\'b3\'c0\'c7 \'c0\'ce\'c5\'cd\'c6\'e4\'c0\'cc\'bd\'ba\'b8\'a6 \'b8\'b8\'b5\'e9\'b0\'ed \'b6\'f7\'b4\'d9\'b8\'a6 \'c0\'cc\'bf\'eb\'c7\'d8\'bc\'ad \'b8\'de\'bc\'d2\'b5\'e5\'b8\'a6 \'b1\'b8\'c7\'f6\'c7\'cf\'b0\'ed \'c8\'a3\'c3\'e2\
+\pard\pardeftab720\partightenfactor0
+\cf8 package\cf0  com.naver.choch92.lamdba;\
+\cf10 // \'b8\'de\'bc\'d2\'b5\'e5\'b0\'a1 1\'b0\'b3\'b8\'b8 \'bc\'b1\'be\'f0\'b5\'c7\'be\'ee\'c0\'d6\'b4\'c2\'c1\'f6 \'c8\'ae\'c0\'ce\'c7\'d8\'c1\'d6\'b4\'c2 \'be\'ee\'b3\'eb\'c5\'d7\'c0\'cc\'bc\'c7\cf0 \
+\cf10 // \'b8\'c5\'b0\'b3\'ba\'af\'bc\'f6\'b0\'a1 \'be\'f8\'b4\'c2 \'c3\'df\'bb\'f3\'b8\'de\'bc\'d2\'b5\'e5\'b8\'a6 \'b0\'a1\'c1\'f8 \'c0\'ce\'c5\'cd\'c6\'e4\'c0\'cc\'bd\'ba\cf0 \
+\pard\pardeftab720\partightenfactor0
+\cf15 @FunctionalInterface\cf0 \
+\pard\pardeftab720\partightenfactor0
+\cf8 interface\cf0  Inter1\{\
+	\cf8 public\cf0  \cf8 void\cf0  method();\
+\}\
+\cf10 // \'b8\'c5\'b0\'b3\'ba\'af\'bc\'f6\'b0\'a1 \'c0\'d6\'b4\'c2 \'c3\'df\'bb\'f3\'b8\'de\'bc\'d2\'b5\'e5\'b8\'a6 \'b0\'a1\'c1\'f8 \'c0\'ce\'c5\'cd\'c6\'e4\'c0\'cc\'bd\'ba\cf0 \
+\pard\pardeftab720\partightenfactor0
+\cf15 @FunctionalInterface\cf0 \
+\pard\pardeftab720\partightenfactor0
+\cf8 interface\cf0  Inter2\{\
+	\cf8 public\cf0  \cf8 void\cf0  method(\cf8 int\cf0  \cf9 i\cf0 );\
+\}\
+\cf10 // \'b8\'ae\'c5\'cf\'c0\'cc \'c0\'d6\'b4\'c2 \'c3\'df\'bb\'f3\'b8\'de\'bc\'d2\'b5\'e5\'b8\'a6 \'b0\'a1\'c1\'f8 \'c0\'ce\'c5\'cd\'c6\'e4\'c0\'cc\'bd\'ba\cf0 \
+\pard\pardeftab720\partightenfactor0
+\cf15 @FunctionalInterface\cf0 \
+\pard\pardeftab720\partightenfactor0
+\cf8 interface\cf0  Inter3\{\
+	\cf8 public\cf0  \cf8 int\cf0  method(\cf8 int\cf0  \cf9 i\cf0 , \cf8 int\cf0  \cf9 j\cf0 );\
+\}\
+\cf8 public\cf0  \cf8 class\cf0  Lambda2 \{\
+	\cf8 public\cf0  \cf8 static\cf0  \cf8 void\cf0  main(String[] \cf9 args\cf0 ) \{\
+		Inter1 \cf9 inter1\cf0  = () -> \{\
+			System.\cf12 out\cf0 .printf(\cf11 "\'b8\'c5\'b0\'b3\'ba\'af\'bc\'f6 \'be\'f8\'b4\'c2 \'b6\'f7\'b4\'d9\\n"\cf0 );\
+		\};\
+		\cf9 inter1\cf0 .method();\
+		\
+		Inter2 \cf9 inter2\cf0  = \cf9 i\cf0  -> \{\
+			\cf8 for\cf0 (\cf8 int\cf0  \cf9 x\cf0 =0; \cf9 x\cf0 <\cf9 i\cf0 ; \cf9 x\cf0 =\cf9 x\cf0 +1) \{\
+				System.\cf12 out\cf0 .printf(\cf11 "\'b8\'c5\'b0\'b3\'ba\'af\'bc\'f6 \'c0\'d6\'b4\'c2 \'b6\'f7\'b4\'d9\\n"\cf0 );\
+			\}\
+		\};\
+		\cf9 inter2\cf0 .method(3);\
+		\
+		Inter3 \cf9 inter3\cf0  = (\cf9 i\cf0 ,\cf9 j\cf0 ) -> \{\
+			\cf8 return\cf0  (\cf9 i\cf0 +\cf9 j\cf0 )/2;\
+		\};\
+		\cf8 int\cf0  \cf9 result\cf0  = \cf9 inter3\cf0 .method(5,8);\
+		System.\cf12 out\cf0 .printf(\cf11 "result:%s\\n"\cf0 , \cf9 result\cf0 );\
+	\}\
+\}\
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural\partightenfactor0
+\cf0 \'b0\'e1\'b0\'fa)\
+\pard\pardeftab720\partightenfactor0
+\cf0 \'b8\'c5\'b0\'b3\'ba\'af\'bc\'f6 \'be\'f8\'b4\'c2 \'b6\'f7\'b4\'d9\
+\'b8\'c5\'b0\'b3\'ba\'af\'bc\'f6 \'c0\'d6\'b4\'c2 \'b6\'f7\'b4\'d9\
+\'b8\'c5\'b0\'b3\'ba\'af\'bc\'f6 \'c0\'d6\'b4\'c2 \'b6\'f7\'b4\'d9\
+\'b8\'c5\'b0\'b3\'ba\'af\'bc\'f6 \'c0\'d6\'b4\'c2 \'b6\'f7\'b4\'d9\
+result:6\
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural\partightenfactor0
+\cf0 \
+** Lambda\'c0\'c7 \'b4\'dc\'c1\'a1\
+\
+- \'c0\'da\'b9\'d9\'c0\'c7 \'b6\'f7\'b4\'d9\'b3\'aa \'bd\'ba\'c0\'a7\'c7\'c1\'c6\'ae\'c0\'c7 \'c5\'ac\'b7\'ce\'c0\'fa\'c0\'c7 \'b4\'dc\'c1\'a1\'c0\'ba \'b0\'a1\'b5\'b6\'bc\'ba\'c0\'bb \'b6\'b3\'be\'ee\'b6\'df\'b8\'b3\'b4\'cf\'b4\'d9.\
+- \'c0\'a7\'bf\'a1 \'bd\'c7\'bd\'c0\'c0\'c7 \'c7\'d1 \'b1\'b8\'b9\'ae\'c0\'bb Annonymous\'b7\'ce \'b9\'d9\'b2\'d9\'be\'ee\'bc\'ad Lambda \'ba\'f1\'b1\'b3\'c7\'d8\'ba\'b8\'b1\'e2\
+\pard\pardeftab720\partightenfactor0
+\cf0 Inter3 \cf9 \ul \ulc9 inter4\cf0 \ulnone  = \cf8 new\cf0  Inter3() \{\
+	\cf8 public\cf0  \cf8 int\cf0  method(\cf8 int\cf0  \cf9 i\cf0 , \cf8 int\cf0  \cf9 j\cf0 ) \{\
+		\cf8 return\cf0  (\cf9 i\cf0 +\cf9 j\cf0 )/2;\
+	\}\
+\}\
+\
+** JDK 1.8 \'ba\'ce\'c5\'cd\'b4\'c2 \'b8\'de\'bc\'d2\'b5\'e5\'c0\'c7 \'c0\'cc\'b8\'a7\'c0\'bb \'b8\'c5\'b0\'b3\'ba\'af\'bc\'f6\'b7\'ce \'b3\'d1\'b1\'e6\'bc\'f6 \'c0\'d6\'bd\'c0\'b4\'cf\'b4\'d9.\
+\
+- Collection\'bf\'a1 \'c0\'cc\'b7\'b1 \'b8\'de\'bc\'d2\'b5\'e5\'b0\'a1 \'c1\'b8\'c0\'e7\
+- List\'c0\'c7 forEach\'b8\'de\'bc\'d2\'b5\'e5\'b4\'c2 \'b8\'c5\'b0\'b3\'ba\'af\'bc\'f6\'b7\'ce \'b8\'de\'bc\'d2\'b5\'e5\'b8\'a6 \'b9\'de\'be\'c6\'bc\'ad \'b8\'f0\'b5\'e7 \'bf\'e4\'bc\'d2\'b8\'a6 \'b8\'de\'bc\'d2\'b5\'e5\'c0\'c7 \'b8\'c5\'b0\'b3\'ba\'af\'bc\'f6\'b7\'ce \'c0\'fc\'b4\'de\'c7\'d8\'bc\'ad \'bd\'c7\'c7\'e0\'c7\'d5\'b4\'cf\'b4\'d9.\
+- \'b9\'dd\'ba\'b9\'b9\'ae\'c0\'bb \'bb\'e7\'bf\'eb\'c7\'d2 \'c7\'ca\'bf\'e4\'b0\'a1 \'be\'f8\'b1\'e2 \'b6\'a7\'b9\'ae\'bf\'a1 \'c4\'da\'b5\'e5\'b0\'a1 \'b0\'a3\'b0\'e1\'c7\'d8 \'c1\'fd\'b4\'cf\'b4\'d9.\
+\
+\pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardirnatural\partightenfactor0
+\cf0 \'bd\'c7\'bd\'c0)\
+\pard\pardeftab720\partightenfactor0
+\cf8 package\cf0  com.naver.choch92.lamdba;\
+\cf8 import\cf0  java.util.ArrayList;\
+\cf8 import\cf0  java.util.List;\
+\cf8 public\cf0  \cf8 class\cf0  Lambda3 \{\
+	\cf8 public\cf0  \cf8 static\cf0  \cf8 void\cf0  main(String[] \cf9 args\cf0 ) \{\
+		\cf10 // \'b9\'ae\'c0\'da\'bf\'ad\'c0\'bb \'c0\'fa\'c0\'e5\'c7\'cf\'b4\'c2 List\'b8\'a6 \'bb\'fd\'bc\'ba\'c7\'cf\'b0\'ed \'b5\'a5\'c0\'cc\'c5\'cd\'b8\'a6 \'c0\'fa\'c0\'e5\cf0 \
+		List<String> \cf9 list\cf0  = \cf8 new\cf0  ArrayList<>();\
+		\cf9 list\cf0 .add(\cf11 "\'b0\'f1\'b5\'e7\'bd\'ba\'b3\'eb\'bf\'ec\'c4\'a1\'c5\'b2"\cf0 );\
+		\cf9 list\cf0 .add(\cf11 "\'be\'e7\'b3\'e4\'c4\'a1\'c5\'b2"\cf0 );\
+		\cf9 list\cf0 .add(\cf11 "\'b0\'a5\'ba\'f1\'b8\'c0\'c4\'a1\'c5\'b2"\cf0 );\
+		\cf9 list\cf0 .add(\cf11 "\'b0\'a3\'c0\'e5\'c4\'a1\'c5\'b2"\cf0 );\
+		\cf9 list\cf0 .add(\cf11 "\'c7\'d6\'bc\'ee\'c5\'b7\'c4\'a1\'c5\'b2"\cf0 );\
+		\cf9 list\cf0 .add(\cf11 "\'c6\'c4\'b4\'df\'bc\'f8\'bb\'ec\'c4\'a1\'c5\'b2"\cf0 );\
+		\cf10 // \'c0\'a7\'c0\'c7 \'b5\'a5\'c0\'cc\'c5\'cd\'b8\'a6 \'bc\'f8\'bc\'ad\'b4\'eb\'b7\'ce \'c7\'cf\'b3\'aa\'be\'bf \'c3\'e2\'b7\'c2\cf0 \
+		\cf10 // \'c1\'a6\'c0\'cf \'be\'c8\'c1\'c1\'c0\'ba \'b9\'e6\'b9\'fd(\'ba\'ea\'b7\'d0\'c1\'ee\'c6\'bc\'be\'ee) - for(\cf10 \ul \ulc10 int\cf10 \ulnone  i=0; i<list.size(); i=i+1)\cf0 \
+		\cf8 int\cf0  \cf9 len\cf0  = \cf9 list\cf0 .size();\
+		\cf8 for\cf0 (\cf8 int\cf0  \cf9 i\cf0 =0; \cf9 i\cf0 <\cf9 len\cf0 ; \cf9 i\cf0 =\cf9 i\cf0 +1) \{\
+			System.\cf12 out\cf0 .println(\cf9 list\cf0 .get(\cf9 i\cf0 ));\
+		\}\
+		\cf10 // \'b1\'d7\'b3\'aa\'b8\'b6 \'b3\'aa\'c0\'ba \'b9\'e6\'b9\'fd(\'bd\'c7\'b9\'f6\'c6\'bc\'be\'ee) - \'ba\'fc\'b8\'a5\'bf\'ad\'b0\'c5\cf0 \
+		\cf8 for\cf0 (String \cf9 imsi\cf0  : \cf9 list\cf0 ) \{\
+			System.\cf12 out\cf0 .println(\cf9 imsi\cf0 );\
+		\}\
+		\cf10 // List\'bf\'a1 \'c7\'d4\'bc\'f6\'b8\'a6 \'b8\'c5\'b0\'b3\'ba\'af\'bc\'f6\'b7\'ce \'b4\'eb\'c0\'d4\'c7\'d8\'bc\'ad List\'c0\'c7 \'b8\'f0\'b5\'e7 \'b5\'a5\'c0\'cc\'c5\'cd\'b8\'a6 \'c7\'d4\'bc\'f6\'c0\'c7 \'b8\'c5\'b0\'b3\'ba\'af\'bc\'f6\'b7\'ce \'b4\'eb\'c0\'d4\'c7\'d8\'bc\'ad \'bd\'c7\'c7\'e0\cf0 \
+		\cf10 // 1.8 version\'bf\'a1\'bc\'ad \'ba\'ce\'c5\'cd \'b0\'a1\'b4\'c9 - \'b0\'f1\'b5\'e5\'c6\'bc\'be\'ee(\'c4\'da\'b5\'e5\'b0\'a3\'b0\'e1,\'bc\'d3\'b5\'b5\'c3\'d6\'b0\'ad,\'b5\'a5\'c0\'cc\'c5\'cd\'bc\'d2\'b8\'f0\'c0\'fb\'c0\'bd)\cf0 \
+		\cf10 // \'c0\'cc \'b1\'e2\'b4\'c9\'c0\'ba C\'be\'f0\'be\'ee\'b8\'a6 \'c1\'a6\'bf\'dc\'c7\'d1 \'b0\'c5\'c0\'c7 \'b8\'f0\'b5\'e7 \'c7\'c1\'b7\'ce\'b1\'d7\'b7\'a1\'b9\'d6\'be\'f0\'be\'ee\'bf\'a1 \'c1\'b8\'c0\'e7\'c7\'cf\'b4\'c2 \'b1\'e2\'b4\'c9\'c0\'ce\'b5\'a5 \'b4\'eb\'ba\'ce\'ba\'d0\'c0\'ba map\'c0\'cc\'b6\'f3\'b0\'ed \'c7\'d4.\cf0 \
+		\cf9 list\cf0 .forEach(System.\cf12 out\cf0 ::println);\
+	\}\
+\}\
+\
+\pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardirnatural\partightenfactor0
+\cf0 ** JDK 1.8\'bf\'a1\'bc\'ad \'c1\'a6\'b0\'f8\'c7\'cf\'b4\'c2 \'c7\'d4\'bc\'f6\'c0\'fb \'c0\'ce\'c5\'cd\'c6\'e4\'c0\'cc\'bd\'ba\
+\
+1. Consumer : \'b8\'c5\'b0\'b3\'ba\'af\'bc\'f6\'b0\'a1 \'c0\'d6\'b0\'ed \'b8\'ae\'c5\'cf \'b0\'aa\'c0\'ba \'b8\'de\'bc\'d2\'b5\'e5\'b8\'a6 \'bc\'d2\'c0\'af\
+=> \'c3\'e2\'b7\'c2\'c0\'bb \'c0\'a7\'c7\'d8\'bc\'ad \'bb\'e7\'bf\'eb\
+\
+2. Supplier : \'b8\'c5\'b0\'b3\'ba\'af\'bc\'f6\'b4\'c2 \'be\'f8\'b0\'ed \'b8\'ae\'c5\'cf \'b0\'aa\'b8\'b8 \'c0\'d6\'b4\'c2 \'b8\'de\'bc\'d2\'b5\'e5\'b8\'a6 \'bc\'d2\'c0\'af\
+=> \'b5\'a5\'c0\'cc\'c5\'cd \'c0\'fc\'c3\'bc\'b8\'a6 \'ba\'af\'c8\'af\'c7\'cf\'b1\'e2 \'c0\'a7\'c7\'d8\'bc\'ad \'bb\'e7\'bf\'eb\
+\
+3. Function : \'b8\'c5\'b0\'b3\'ba\'af\'bc\'f6\'b0\'a1 \'c0\'d6\'b0\'ed \'b8\'ae\'c5\'cf \'b0\'aa\'b5\'b5 \'c0\'d6\'b4\'c2 \'b8\'de\'bc\'d2\'b5\'e5\'b8\'a6 \'bc\'d2\'c0\'af\
+=> \'b5\'a5\'c0\'cc\'c5\'cd\'b8\'a6 \'b0\'a1\'b0\'f8\'c7\'d2 \'b6\'a7 \'bb\'e7\'bf\'eb\
+\
+4. Operator : \'b8\'c5\'b0\'b3\'ba\'af\'bc\'f6\'b0\'a1 \'c0\'d6\'b0\'ed \'b8\'ae\'c5\'cf \'b0\'aa\'b5\'b5 \'c0\'d5\'b4\'c2 \'b8\'de\'bc\'d2\'b5\'e5\'b8\'a6 \'bc\'d2\'c0\'af\'c7\'cf\'b0\'ed \'c0\'d6\'b4\'c2\'b5\'a5 \'b8\'c5\'b0\'b3\'ba\'af\'bc\'f6\'b8\'a6 \'bf\'ac\'bb\'ea\'c7\'d8\'bc\'ad \'b8\'ae\'c5\'cf\'b0\'aa\'c0\'bb \'b8\'b8\'b5\'e9\'be\'ee \'c1\'dc\
+=> \'b5\'a5\'c0\'cc\'c5\'cd\'b8\'a6 \'bf\'ac\'bb\'ea\'c7\'d1 \'b0\'e1\'b0\'fa\'b8\'a6 \'b8\'b8\'b5\'e9 \'b6\'a7 \'bb\'e7\'bf\'eb\
+\
+5. Predicate : \'b8\'c5\'b0\'b3\'ba\'af\'bc\'f6\'b0\'a1 \'c0\'d6\'b0\'ed \'b8\'ae\'c5\'cf\'c0\'cc boolean\
+=> \'c1\'b6\'b0\'c7\'bf\'a1 \'b8\'c2\'b4\'c2 \'b5\'a5\'c0\'cc\'c5\'cd\'b8\'b8 \'c7\'ca\'c5\'cd\'b8\'b5 \'c7\'d2 \'b6\'a7 \'bb\'e7\'bf\'eb\
+\
+** \'c0\'a5 \'c7\'c1\'b7\'ce\'b1\'d7\'b7\'a1\'b9\'d6\
+\
+- \'b5\'a5\'c0\'cc\'c5\'cd\'ba\'a3\'c0\'cc\'bd\'ba\'bc\'ad\'b9\'f6 <-> DAO <-> \'bc\'ad\'ba\'f1\'bd\'ba(\'be\'cb\'b0\'ed\'b8\'ae\'c1\'f2) <-> \'c0\'a5 \'bc\'ad\'b9\'f6 <-> \'c0\'a5\'ba\'ea\'b6\'f3\'bf\'ec\'c0\'fa\
+- \'bf\'b9\'c0\'fc\'c0\'c7 \'c7\'c1\'b7\'ce\'b1\'d7\'b7\'a1\'b9\'d6 \'b9\'e6\'bd\'c4\'c0\'ba \'b0\'fc\'b0\'e8\'c7\'fc \'b5\'a5\'c0\'cc\'c5\'cd\'ba\'a3\'c0\'cc\'bd\'ba\'c0\'c7 SQL\'c0\'bb \'c7\'d0\'bd\'c0\'c7\'d8\'bc\'ad \'b5\'a5\'c0\'cc\'c5\'cd\'b8\'a6 \'c0\'fa\'c0\'e5\'c7\'cf\'b0\'ed Back-End\'bf\'eb \'c7\'c1\'b7\'ce\'b1\'d7\'b7\'a1\'b9\'d6 \'be\'f0\'be\'ee(Java, Php, C#-ASP.Net, Python, Ruby \'b5\'ee)\'b8\'a6 \'c7\'d0\'bd\'c0\'c7\'d8\'bc\'ad \'b5\'a5\'c0\'cc\'c5\'cd\'ba\'a3\'c0\'cc\'bd\'ba \'bc\'ad\'b9\'f6\'bf\'cd \'bf\'ac\'b5\'bf\'c7\'cf\'b0\'ed. \'bc\'ad\'b9\'f6\'c2\'ca \'be\'cb\'b0\'ed\'b8\'ae\'c1\'f2\'c0\'bb \'b1\'b8\'c7\'f6\'c7\'cf\'b0\'ed HTML,CSS,JavaScript\'b8\'a6 \'c7\'d0\'bd\'c0\'c7\'d8\'bc\'ad \'c0\'a5 \'c6\'e4\'c0\'cc\'c1\'f6\'b8\'a6 \'b8\'b8\'b5\'e9\'be\'ee\'bc\'ad \'c3\'e2\'b7\'c2\
+\
+- Oracle -> Java -> HTML, CSS, JavaScript -> Java Web Server Programming -> Android&iOS\
+- Mongo DB(\'c0\'da\'b9\'d9\'bd\'ba\'c5\'a9\'b8\'b3\'c6\'ae) <-> Node.js(\'c0\'da\'b9\'d9\'bd\'ba\'c5\'a9\'b8\'b3\'c6\'ae \'b6\'f3\'c0\'cc\'ba\'ea\'b7\'af\'b8\'ae) <-> Angular.js(\'bc\'ad\'b9\'f6\'c0\'c7 \'b5\'a5\'c0\'cc\'c5\'cd\'b8\'a6\
+HTML\'bf\'a1 \'b9\'d9\'c0\'ce\'b5\'f9 \'bd\'c3\'c4\'d1\'c1\'d6\'b4\'c2 \'c0\'da\'b9\'d9\'bd\'ba\'c5\'a9\'b8\'b3\'c6\'ae \'b6\'f3\'c0\'cc\'ba\'ea\'b7\'af\'b8\'ae, Vus.js, react\'b5\'ee) <-> \
+\'c0\'a5\'bc\'ad\'b9\'f6\'b8\'a6 express.js(\'c0\'da\'b9\'d9\'bd\'ba\'c5\'a9\'b8\'b3\'c6\'ae \'b6\'f3\'c0\'cc\'ba\'ea\'b7\'af\'b8\'ae)\
+\
+- \'b8\'f0\'b9\'d9\'c0\'cf\'b5\'b5 Java Script\'b7\'ce \'b8\'b8\'b5\'e9\'c0\'da(iOS&Android - ionic, react native, phonegap\'b5\'ee)\
+- \'bb\'ef\'bc\'ba\'c0\'c7 Tizen\'c0\'ba \'c0\'da\'b9\'d9\'bd\'ba\'c5\'a9\'b8\'b3\'c6\'ae\'b7\'ce \'be\'db \'b0\'b3\'b9\'df \'b0\'a1\'b4\'c9}
